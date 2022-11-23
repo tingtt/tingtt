@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: tingtt
+  name: tingtt-portfolio
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   description: https://github.com/tingtt/tingtt
   destinations:
     - name: '*'
-      namespace: 'tingtt'
+      namespace: 'default'
       server: '*'
   sourceRepos:
     - https://github.com/tingtt/tingtt.git

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tingtt
+  name: tingtt-portfolio
   namespace: argocd
 spec:
   destination:
@@ -10,7 +10,7 @@ spec:
   source:
     path: .k8s
     repoURL: 'https://github.com/tingtt/tingtt.git'
-    targetRevision: tingtt
-  project: tingtt
+    targetRevision: main
+  project: tingtt-portfolio
   syncPolicy:
     automated: {}
