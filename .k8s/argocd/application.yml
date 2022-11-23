@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: slidev
+    namespace: default
     server: 'https://kubernetes.default.svc'
   source:
     path: .k8s
