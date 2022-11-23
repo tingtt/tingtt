@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tingtt
+  namespace: argocd
+spec:
+  destination:
+    namespace: slidev
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: .k8s
+    repoURL: 'https://github.com/tingtt/tingtt.git'
+    targetRevision: tingtt
+  project: tingtt
+  syncPolicy:
+    automated: {}

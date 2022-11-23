@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: tingtt
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: https://github.com/tingtt/tingtt
+  destinations:
+    - name: '*'
+      namespace: 'tingtt'
+      server: '*'
+  sourceRepos:
+    - https://github.com/tingtt/tingtt.git
