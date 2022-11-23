@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tingtt
+  name: tingtt-portfolio
   labels:
-    app: tingtt
+    app: tingtt-portfolio
 spec:
   selector:
     matchLabels:
-      app: tingtt
+      app: tingtt-portfolio
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,10 +18,10 @@ spec:
   template:
     metadata:
       labels:
-        app: tingtt
+        app: tingtt-portfolio
     spec:
       containers:
-        - name: tingtt
+        - name: tingtt-portfolio
           image: tingtt/tingtt:v0.0.0
           imagePullPolicy: Always
           resources:
@@ -57,10 +57,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tingtt
+  name: tingtt-portfolio
 spec:
   selector:
-    app: tingtt
+    app: tingtt-portfolio
   type: ClusterIP
   ports:
     - name: http
