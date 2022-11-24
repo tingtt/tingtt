@@ -1,5 +1,6 @@
 import SKILLS from '../../data/Skills'
 import { Skills } from '../../domain/model/Skills'
+import { Genre, Skill } from '../../domain/model/Skills/@types'
 import { RepositorySkillsInMemory } from '../../infrastructure/datasource/Skills/in_memory'
 import { migrate } from './migrate'
 
@@ -11,3 +12,49 @@ if (err != null) {
 }
 
 export const getSkills = () => skills.found()
+export const getSkillGenres = (): [Genre[], Error | null] => {
+  const [ss, err] = skills.found()
+  if (err != null) {
+    return [[], err]
+  }
+
+  const genres: Genre[] = []
+  ss.forEach(({ genre }) => {
+    if (genres.find((g) => g.name == genre.name) == undefined) {
+      genres.push(genre)
+    }
+  })
+
+  return [genres, null]
+}
+
+export const getKillsGroupedByGenre = (): [
+  { genre: Genre; skills: Skill[] }[],
+  Error | null
+] => {
+  const [skills, errSkills] = getSkills()
+  if (errSkills != null) {
+    return [
+      [{ genre: { name: '', borderColor: '', bgColor: '' }, skills: [] }],
+      errSkills,
+    ]
+  }
+
+  const [genres, errSkillGenres] = getSkillGenres()
+  if (errSkillGenres != null) {
+    return [
+      [{ genre: { name: '', borderColor: '', bgColor: '' }, skills: [] }],
+      errSkillGenres,
+    ]
+  }
+
+  return [
+    genres.map((genre) => {
+      return {
+        genre,
+        skills: skills.filter(({ genre: g }) => genre.name == g.name),
+      }
+    }),
+    errSkillGenres,
+  ]
+}
