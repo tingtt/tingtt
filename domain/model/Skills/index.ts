@@ -13,8 +13,23 @@ export class Skills {
     if (err != null) {
       return err
     }
+    // validate duplicate name
     if (skills.filter(({ name }) => name == s.name).length == 1) {
       return new Error(`'Skill' "${s.name}" already exists`)
+    }
+    // validate different genre color with same genre name
+    if (
+      skills
+        .filter(({ genre }) => genre.name == s.genre.name)
+        .some((s2) => {
+          if (s2.genre.borderColor != s.genre.borderColor) {
+            return true
+          }
+        })
+    ) {
+      return new Error(
+        `'genre' "${s.genre.name}" already exists with not 'color' "${s.genre.borderColor}"`
+      )
     }
 
     // add

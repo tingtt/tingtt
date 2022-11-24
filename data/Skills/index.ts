@@ -1,67 +1,83 @@
-import { Skill } from '../../domain/model/Skills/@types'
+import { Genre, Skill } from '../../domain/model/Skills/@types'
 
-const genreFrontend = 'Front-end'
-const genreBackend = 'Back-end'
-const genreDevelopmemt = 'Development'
-const genreInfrastructure = 'Infrastructure'
+const genreFrontend: Genre = {
+  name: 'Front-end',
+  borderColor: 'rgba(0, 206, 201, 1.0)',
+  bgColor: 'rgba(0, 206, 201, 0.2)',
+}
+const genreBackend: Genre = {
+  name: 'Back-end',
+  borderColor: 'rgba(0, 184, 148, 1.0)',
+  bgColor: 'rgba(0, 184, 148, 0.2)',
+}
+const genreDevelopmemt: Genre = {
+  name: 'Development',
+  borderColor: 'rgba(232, 67, 147, 1.0)',
+  bgColor: 'rgba(232, 67, 147, 0.2)',
+}
+const genreInfrastructure: Genre = {
+  name: 'Infrastructure',
+  borderColor: 'rgba(253, 203, 110, 1.0)',
+  bgColor: 'rgba(253, 203, 110, 0.2)',
+}
 
 const SKILLS: Skill[] = [
   // Front-end
   {
-    name: 'React.js / Next.js / TypeScript',
-    level: 4.5,
+    name: 'Next.js',
+    level: 5,
     genre: genreFrontend,
   },
   {
-    name: 'TailwindCSS / daisyUI',
+    name: 'TypeScript',
+    level: 5,
+    genre: genreFrontend,
+  },
+  {
+    name: 'Tailwind',
     level: 4,
     genre: genreFrontend,
   },
   {
-    name: 'Swift / SwiftUI',
-    level: 3,
-    genre: genreFrontend,
-  },
-  {
-    name: 'Flutter',
-    level: 2.5,
-    genre: genreFrontend,
-  },
-  {
-    name: 'Atomic Design',
+    name: 'AtomicDesign',
     level: 3,
     genre: genreFrontend,
   },
   {
     name: 'Figma',
-    level: 3.5,
+    level: 4,
+    genre: genreFrontend,
+  },
+  {
+    name: 'Flutter',
+    level: 2,
     genre: genreFrontend,
   },
 
   // Back-end
   {
     name: 'Go',
-    level: 4.5,
+    level: 5,
     genre: genreBackend,
   },
   {
     name: 'Echo',
-    level: 4.5,
+    level: 5,
     genre: genreBackend,
   },
   {
-    name: 'Java / Spring Boot',
+    name: 'Java',
     level: 1,
     genre: genreBackend,
   },
   {
     name: 'MySQL',
-    level: 4.5,
+    level: 5,
     genre: genreBackend,
   },
   {
-    name: 'OpenAPI / Swagger',
-    level: 4.5,
+    name: 'OpenAPI',
+    level: 5,
     genre: genreBackend,
   },
   {
@@ -72,28 +88,28 @@ const SKILLS: Skill[] = [
 
   // Development
   {
+    name: 'Clean Architecture',
+    level: 4,
+    genre: genreDevelopmemt,
+  },
+  {
     name: 'git',
     level: 5,
     genre: genreDevelopmemt,
   },
   {
-    name: 'GitHub / GitHub Actions',
-    level: 4.5,
+    name: 'GitHub',
+    level: 5,
     genre: genreDevelopmemt,
   },
   {
-    name: 'GitLab / GitLab CI/CD',
-    level: 4.5,
+    name: 'GitLab',
+    level: 5,
     genre: genreDevelopmemt,
   },
   {
-    name: 'Docker / Dockder Compose',
-    level: 4.8,
-    genre: genreDevelopmemt,
-  },
-  {
-    name: 'Clean Architecture (DDD, Layered Architecture)',
-    level: 4,
+    name: 'Docker',
+    level: 5,
     genre: genreDevelopmemt,
   },
   {
@@ -105,22 +121,22 @@ const SKILLS: Skill[] = [
   // Infrastructure
   {
     name: 'Kubernetes',
-    level: 4.5,
+    level: 5,
     genre: genreInfrastructure,
   },
   {
-    name: 'ArgoCD (DevOps, GitOps)',
-    level: 4.5,
+    name: 'DevOps',
+    level: 5,
     genre: genreInfrastructure,
   },
   {
-    name: 'Linux - Debian (Ubuntu)',
+    name: 'Ubuntu',
     level: 3,
     genre: genreInfrastructure,
   },
   {
-    name: 'Linux - RedHat (CentOS, AlmaLinux)',
-    level: 2.5,
+    name: 'CentOS / AlmaLinux',
+    level: 3,
     genre: genreInfrastructure,
   },
   {
@@ -130,7 +146,7 @@ const SKILLS: Skill[] = [
   },
   {
     name: 'AWS',
-    level: 2.5,
+    level: 3,
     genre: genreInfrastructure,
   },
 ]
