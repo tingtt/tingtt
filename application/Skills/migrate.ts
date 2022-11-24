@@ -1,10 +1,10 @@
-import SKILLS from '../../data/Skills'
 import { Skills } from '../../domain/model/Skills'
+import { Skill } from '../../domain/model/Skills/@types'
 
-export const migrate = (skills: Skills): Error | null => {
+export const migrate = (i: Skills, skills: Skill[]): Error | null => {
   var err: Error | null = null
-  SKILLS.some((s) => {
-    err = skills.add(s)
+  skills.some((s) => {
+    err = i.add(s)
     if (err != null) {
       return true
     }

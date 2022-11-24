@@ -1,8 +1,8 @@
 import SKILLS from '..'
+import { migrate } from '../../../application/Skills/migrate'
+import { Skills } from '../../../domain/model/Skills'
+import { RepositorySkillsInMemory } from '../../../infrastructure/datasource/Skills/in_memory'
 
-it('skill data not contain duplicate name', () => {
-  expect(
-    SKILLS.map((s) => s.name).filter((s, index, arr) => arr.indexOf(s) != index)
-      .length
-  ).toBe(0)
+it('skill data not contain duplicate name or another genre color with same genre name', () => {
+  expect(migrate(new Skills(new RepositorySkillsInMemory()), SKILLS)).toBe(null)
 })
