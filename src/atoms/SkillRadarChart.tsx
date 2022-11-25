@@ -8,6 +8,7 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from 'recharts'
+import { PropsDarkMode } from '../../domain/model/Theme/@types'
 
 export const SkillRadarChart = ({
   name,
@@ -16,7 +17,7 @@ export const SkillRadarChart = ({
   isDarkMode,
 }: Genre & {
   skills: Skill[]
-} & { isDarkMode: boolean }) => {
+} & PropsDarkMode) => {
   return (
     <div key={name} className='w-full max-w-[370px] aspect-[9/8] scale-[0.9]'>
       <ResponsiveContainer width='100%' height='100%'>
