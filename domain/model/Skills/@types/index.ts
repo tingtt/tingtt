@@ -1,4 +1,7 @@
-export type Genre = { name: string; borderColor: string; bgColor: string }
+export type Genre = {
+  name: string
+  color: string
+}
 
 export type Skill = {
   name: string

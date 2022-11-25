@@ -34,18 +34,12 @@ export const getKillsGroupedByGenre = (): [
 ] => {
   const [skills, errSkills] = getSkills()
   if (errSkills != null) {
-    return [
-      [{ genre: { name: '', borderColor: '', bgColor: '' }, skills: [] }],
-      errSkills,
-    ]
+    return [[{ genre: { name: '', color: '' }, skills: [] }], errSkills]
   }
 
   const [genres, errSkillGenres] = getSkillGenres()
   if (errSkillGenres != null) {
-    return [
-      [{ genre: { name: '', borderColor: '', bgColor: '' }, skills: [] }],
-      errSkillGenres,
-    ]
+    return [[{ genre: { name: '', color: '' }, skills: [] }], errSkillGenres]
   }
 
   return [

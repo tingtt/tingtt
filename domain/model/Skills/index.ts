@@ -22,13 +22,13 @@ export class Skills {
       skills
         .filter(({ genre }) => genre.name == s.genre.name)
         .some((s2) => {
-          if (s2.genre.borderColor != s.genre.borderColor) {
+          if (s2.genre.color != s.genre.color) {
             return true
           }
         })
     ) {
       return new Error(
-        `'genre' "${s.genre.name}" already exists with not 'color' "${s.genre.borderColor}"`
+        `'genre' "${s.genre.name}" already exists with not 'color' "${s.genre.color}"`
       )
     }
 

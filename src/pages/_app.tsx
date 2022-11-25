@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <div className='w-full min-h-screen'>
       <Head>
         <title>{`tingtt's portfolio`}</title>
         <link rel='icon' href='/favicon.ico' />
