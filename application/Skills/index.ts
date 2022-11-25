@@ -34,12 +34,12 @@ export const getSkillsGroupedByGenre = (): [
 ] => {
   const [skills, errSkills] = getSkills()
   if (errSkills != null) {
-    return [[{ genre: { name: '', color: '' }, skills: [] }], errSkills]
+    return [[], errSkills]
   }
 
   const [genres, errSkillGenres] = getSkillGenres()
   if (errSkillGenres != null) {
-    return [[{ genre: { name: '', color: '' }, skills: [] }], errSkillGenres]
+    return [[], errSkillGenres]
   }
 
   return [
