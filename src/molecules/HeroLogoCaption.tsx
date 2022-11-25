@@ -1,4 +1,4 @@
-import { BugRoat } from '../atoms/BugRoad'
+import { BugRoad } from '../atoms/BugRoad'
 import { HeroCaption } from '../atoms/HeroCaption'
 import { HeroCaptionSub } from '../atoms/HeroCaptionSub'
 
@@ -7,7 +7,7 @@ export const HeroLogoCaption = () => {
     <div className='flex items-center gap-8 sm:gap-16 pr-16 w-full max-w-full'>
       <div className='flex items-center w-8 sm:w-auto h-0 overflow-visible'>
         <div className='scale-[0.6] sm:scale-[0.7] lg:scale-100 rotate-45'>
-          <BugRoat />
+          <BugRoad />
         </div>
       </div>
       <div className='z-10'>
