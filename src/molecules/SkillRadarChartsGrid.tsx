@@ -11,7 +11,7 @@ export const SkillRadarChartGrid = ({
   isDarkMode,
 }: PropsSkillRadarChartGrid & PropsDarkMode) => {
   return (
-    <div className='w-full grid md:grid-cols-2 xl:grid-cols-4 justify-items-center'>
+    <div className='grid md:grid-cols-2 xl:grid-cols-4 justify-items-center'>
       {genres.map(({ genre, skills }) => (
         <SkillRadarChart
           key={genre.name}

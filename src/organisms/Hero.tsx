@@ -12,12 +12,14 @@ export const Hero = ({
   return (
     <div
       className={`
-        w-full min-h-screen bg-base-200 p-48 pr-48 xl:pr-16 2xl:pr-48
+        min-h-screen bg-base-200 xl:p-48 xl:pr-16 2xl:pr-48
         grid grid-cols-1 xl:grid-cols-2 items-center justify-items-center
       `}
     >
-      <HeroLogoCaption />
-      <div className='w-full min-w-[300px] max-w-[400px] h-[300px] flex translate-y-32 xl:translate-y-0 xl:justify-self-end'>
+      <div className='xl:justify-self-start'>
+        <HeroLogoCaption />
+      </div>
+      <div className='w-full min-w-[300px] max-w-[300px] sm:max-w-[480px] xl:max-w-[400px] h-[300px] flex xl:justify-self-end'>
         <GenreSkillBarChart genreSkills={genreSkills} isDarkMode={isDarkMode} />
       </div>
     </div>
