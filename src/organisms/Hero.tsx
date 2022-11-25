@@ -1,10 +1,14 @@
+import { PropsDarkMode } from '../../domain/model/Theme/@types'
 import {
   GenreSkillBarChart,
   PropsGenreSkillBarChart,
 } from '../atoms/GenreSkillBarChart'
 import { HeroLogoCaption } from '../molecules/HeroLogoCaption'
 
-export const Hero = ({ genreSkills }: PropsGenreSkillBarChart) => {
+export const Hero = ({
+  genreSkills,
+  isDarkMode,
+}: PropsGenreSkillBarChart & PropsDarkMode) => {
   return (
     <div
       className={`
@@ -14,7 +18,7 @@ export const Hero = ({ genreSkills }: PropsGenreSkillBarChart) => {
     >
       <HeroLogoCaption />
       <div className='w-full min-w-[300px] max-w-[400px] h-[300px] flex translate-y-32 xl:translate-y-0 xl:justify-self-end'>
-        <GenreSkillBarChart genreSkills={genreSkills} />
+        <GenreSkillBarChart genreSkills={genreSkills} isDarkMode={isDarkMode} />
       </div>
     </div>
   )

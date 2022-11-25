@@ -13,7 +13,7 @@ export const Top = ({
 }: PropsSkillRadarChartGrid & PropsGenreSkillBarChart & PropsDarkMode) => {
   return (
     <div className='w-full'>
-      <Hero genreSkills={genreSkills} />
+      <Hero genreSkills={genreSkills} isDarkMode={isDarkMode} />
       <div className='scale-[0.8]'>
         <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
       </div>

@@ -7,6 +7,7 @@ import {
   Cell,
 } from 'recharts'
 import { GenreSkill } from '../../domain/model/Skills/@types'
+import { PropsDarkMode } from '../../domain/model/Theme/@types'
 
 export type PropsGenreSkillBarChart = {
   genreSkills: GenreSkill[]
@@ -14,7 +15,8 @@ export type PropsGenreSkillBarChart = {
 
 export const GenreSkillBarChart = ({
   genreSkills,
-}: PropsGenreSkillBarChart) => {
+  isDarkMode = false,
+}: PropsGenreSkillBarChart & PropsDarkMode) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <BarChart width={730} height={250} data={genreSkills} layout='vertical'>
@@ -27,6 +29,9 @@ export const GenreSkillBarChart = ({
           tickLine={false}
           fontSize={18}
           width={112}
+          tick={{
+            fill: isDarkMode ? 'white' : 'black',
+          }}
         />
         <XAxis dataKey='level' type='number' reversed hide />
         <Bar dataKey='level' fill='#8884d8' barSize={16} radius={20}>
