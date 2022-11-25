@@ -84,11 +84,6 @@ const SKILLS: Skill[] = [
 
   // Development
   {
-    name: 'Clean Architecture',
-    level: 4,
-    genre: genreDevelopmemt,
-  },
-  {
     name: 'git',
     level: 5,
     genre: genreDevelopmemt,
@@ -101,6 +96,11 @@ const SKILLS: Skill[] = [
   {
     name: 'GitLab',
     level: 4.5,
+    genre: genreDevelopmemt,
+  },
+  {
+    name: 'Clean Architecture',
+    level: 4,
     genre: genreDevelopmemt,
   },
   {
