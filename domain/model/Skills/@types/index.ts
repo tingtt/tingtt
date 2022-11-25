@@ -8,3 +8,7 @@ export type Skill = {
   level: number
   genre: Genre
 }
+
+export type GenreSkill = {
+  level: number
+} & Genre

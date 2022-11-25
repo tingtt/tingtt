@@ -1,6 +1,6 @@
 import SKILLS from '../../data/Skills'
 import { Skills } from '../../domain/model/Skills'
-import { Genre, Skill } from '../../domain/model/Skills/@types'
+import { Genre, GenreSkill, Skill } from '../../domain/model/Skills/@types'
 import { RepositorySkillsInMemory } from '../../infrastructure/datasource/Skills/in_memory'
 import { migrate } from './migrate'
 
@@ -50,5 +50,22 @@ export const getSkillsGroupedByGenre = (): [
       }
     }),
     errSkillGenres,
+  ]
+}
+
+export const getSkillsAggregatedByGenre = (): [GenreSkill[], Error | null] => {
+  const [genres, err] = getSkillsGroupedByGenre()
+  if (err != null) {
+    return [[], err]
+  }
+
+  return [
+    genres.map((g) => {
+      return {
+        ...g.genre,
+        level: g.skills.reduce((a, c) => a + c.level, 0),
+      }
+    }),
+    null,
   ]
 }
