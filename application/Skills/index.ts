@@ -28,7 +28,7 @@ export const getSkillGenres = (): [Genre[], Error | null] => {
   return [genres, null]
 }
 
-export const getKillsGroupedByGenre = (): [
+export const getSkillsGroupedByGenre = (): [
   { genre: Genre; skills: Skill[] }[],
   Error | null
 ] => {

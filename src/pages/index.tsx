@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
-import { getKillsGroupedByGenre } from '../../application/Skills'
+import { getSkillsGroupedByGenre } from '../../application/Skills'
 import { PropsSkillRadarChartGrid } from '../molecules/SkillRadarChartsGrid'
 import { Top } from '../templates/Top'
 
@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ genres }) => {
 }
 
 export async function getStaticProps(): Promise<{ props: Props }> {
-  const [genres, err] = getKillsGroupedByGenre()
+  const [genres, err] = getSkillsGroupedByGenre()
   if (err != null) {
     throw err
   }
