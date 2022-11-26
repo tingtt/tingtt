@@ -15,7 +15,14 @@ export const HeroLogoCaption = () => {
           <HeroCaption />
         </div>
         <div className='absolute py-6 sm:py-8 chat chat-start'>
-          <div className='chat-bubble chat-bubble-accent max-w-none before:-scale-y-100 before:top-0 text-sm sm:text-base lg:text-lg opacity-70'>
+          <div
+            className={`
+              chat-bubble chat-bubble-accent opacity-70
+              max-w-none text-sm sm:text-base lg:text-lg
+              before:-scale-y-100 before:top-0
+              !rounded-tl-none !rounded-bl-[4px] dark:!rounded-bl-none
+            `}
+          >
             <HeroCaptionSub />
           </div>
         </div>
