@@ -3,6 +3,7 @@ import {
   PropsSkillRadarChartGrid,
   SkillRadarChartGrid,
 } from '../molecules/SkillRadarChartsGrid'
+import { AboutMe } from '../organisms/AboutMe'
 import { Hero } from '../organisms/Hero'
 
 export const Top = ({
@@ -45,17 +46,13 @@ export const Top = ({
         }}
       />
       {/* About me */}
-      <div
-        id={sectionIds[0].id}
-        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
-      >
-        <div className='text-6xl'>About me</div>
-        <div className='grid grid-cols-2'></div>
+      <div id={sectionIds[0].id}>
+        <AboutMe />
       </div>
       {/* Skills */}
       <div
         id={sectionIds[1].id}
-        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
+        className='min-h-screen flex flex-col items-center justify-center gap-16 py-16 bg-base-200'
       >
         <div className='text-6xl'>Skills</div>
         <div className='scale-[0.8] min-h-[260px] w-full'>
@@ -65,7 +62,7 @@ export const Top = ({
       {/* Products */}
       <div
         id={sectionIds[2].id}
-        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
+        className='min-h-screen flex flex-col items-center justify-center gap-16 py-16'
       >
         <div className='text-6xl'>Products</div>
       </div>
