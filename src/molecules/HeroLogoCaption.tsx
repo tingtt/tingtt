@@ -5,8 +5,8 @@ import { HeroCaptionSub } from '../atoms/HeroCaptionSub'
 export const HeroLogoCaption = () => {
   return (
     <div className='flex items-center gap-8 sm:gap-16 pr-16 w-full max-w-full'>
-      <div className='flex flex-col items-center h-8 sm:h-auto w-0 overflow-visible'>
-        <div className='scale-[0.5] sm:scale-[0.7] lg:scale-100 -rotate-45'>
+      <div className='flex items-center w-8 sm:w-auto h-0 overflow-visible'>
+        <div className='scale-[0.5] sm:scale-[0.7] lg:scale-100 rotate-45'>
           <BugRoad />
         </div>
       </div>
