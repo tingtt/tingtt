@@ -1,5 +1,4 @@
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
-import { PropsGenreSkillBarChart } from '../atoms/GenreSkillBarChart'
 import {
   PropsSkillRadarChartGrid,
   SkillRadarChartGrid,
@@ -8,14 +7,67 @@ import { Hero } from '../organisms/Hero'
 
 export const Top = ({
   genres,
-  genreSkills,
   isDarkMode,
-}: PropsSkillRadarChartGrid & PropsGenreSkillBarChart & PropsDarkMode) => {
+}: PropsSkillRadarChartGrid & PropsDarkMode) => {
+  const sectionIds = [
+    { id: 'section-about-me', name: 'About me', sub: '私について' },
+    { id: 'section-skills', name: 'Skills', sub: 'スキル' },
+    { id: 'section-products', name: 'Products', sub: '製作物' },
+  ]
+  Object.freeze(sectionIds)
+
   return (
-    <div className=''>
-      <Hero genreSkills={genreSkills} isDarkMode={isDarkMode} />
-      <div className='scale-[0.8]'>
-        <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
+    <div>
+      {/* Hero */}
+      <Hero
+        outline={{
+          orientation: 'vertical',
+          targets: sectionIds.map((s) => {
+            return {
+              id: s.id,
+              content: (
+                <div
+                  key={s.id}
+                  className='flex items-center gap-4 link link-hover'
+                >
+                  <div className='text-2xl sm:text-4xl whitespace-nowrap'>
+                    {s.name}
+                  </div>
+                  <div className='divider w-full' />
+                  <div className='whitespace-nowrap text-sm sm:text-base'>
+                    {s.sub}
+                  </div>
+                </div>
+              ),
+            }
+          }),
+          smooth: true,
+        }}
+      />
+      {/* About me */}
+      <div
+        id={sectionIds[0].id}
+        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
+      >
+        <div className='text-6xl'>About me</div>
+        <div className='grid grid-cols-2'></div>
+      </div>
+      {/* Skills */}
+      <div
+        id={sectionIds[1].id}
+        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
+      >
+        <div className='text-6xl'>Skills</div>
+        <div className='scale-[0.8] min-h-[260px] w-full'>
+          <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
+        </div>
+      </div>
+      {/* Products */}
+      <div
+        id={sectionIds[2].id}
+        className='min-h-screen flex flex-col items-center justify-center gap-4 py-16'
+      >
+        <div className='text-6xl'>Products</div>
       </div>
     </div>
   )

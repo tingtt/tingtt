@@ -1,14 +1,7 @@
-import { PropsDarkMode } from '../../domain/model/Theme/@types'
-import {
-  GenreSkillBarChart,
-  PropsGenreSkillBarChart,
-} from '../atoms/GenreSkillBarChart'
 import { HeroLogoCaption } from '../molecules/HeroLogoCaption'
+import { Outline, PropsOutline } from '../molecules/Outline'
 
-export const Hero = ({
-  genreSkills,
-  isDarkMode,
-}: PropsGenreSkillBarChart & PropsDarkMode) => {
+export const Hero = ({ outline }: { outline: PropsOutline }) => {
   return (
     <div
       className={`
@@ -19,8 +12,8 @@ export const Hero = ({
       <div className='lg:justify-self-start'>
         <HeroLogoCaption />
       </div>
-      <div className='w-full min-w-[300px] max-w-[300px] sm:max-w-[480px] lg:max-w-[320px] xl:max-w-[400px] h-[300px] flex lg:justify-self-end'>
-        <GenreSkillBarChart genreSkills={genreSkills} isDarkMode={isDarkMode} />
+      <div className='w-full min-w-[300px] max-w-[300px] sm:max-w-[360px] lg:max-w-[300px] xl:max-w-[360px] flex lg:justify-self-end'>
+        <Outline {...outline} />
       </div>
     </div>
   )
