@@ -5,7 +5,7 @@ export const Hero = ({ outline }: { outline: PropsOutline }) => {
   return (
     <div
       className={`
-        min-h-screen bg-base-200 lg:p-16 xl:p-48 xl:pr-16 2xl:pr-48
+        min-h-screen bg-base-200 px-[6%] xl:px-[10%] 2xl:px-[12%]
         grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center
       `}
     >
