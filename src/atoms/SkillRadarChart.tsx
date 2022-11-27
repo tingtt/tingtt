@@ -19,7 +19,7 @@ export const SkillRadarChart = ({
   skills: Skill[]
 } & PropsDarkMode) => {
   return (
-    <div key={name} className='w-full max-w-[370px] aspect-[9/8] scale-[0.9]'>
+    <div key={name} className='w-full max-w-[370px] aspect-[9/7]'>
       <ResponsiveContainer width='100%' height='100%'>
         <RadarChart cx='50%' cy='50%' outerRadius='80%' data={skills}>
           <PolarGrid opacity={0.4} />
@@ -29,6 +29,7 @@ export const SkillRadarChart = ({
             tick={{
               fill: isDarkMode ? 'white' : 'black',
             }}
+            fontSize={13}
           />
           <PolarRadiusAxis
             angle={0}
@@ -43,7 +44,7 @@ export const SkillRadarChart = ({
             fill={color}
             fillOpacity={0.2}
           />
-          <Legend margin={{ top: 10 }} />
+          <Legend height={4} />
         </RadarChart>
       </ResponsiveContainer>
     </div>

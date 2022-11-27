@@ -5,6 +5,7 @@ import {
 } from '../molecules/SkillRadarChartsGrid'
 import { AboutMe } from '../organisms/AboutMe'
 import { Hero } from '../organisms/Hero'
+import { Skills } from '../organisms/Skills'
 
 export const Top = ({
   genres,
@@ -50,14 +51,8 @@ export const Top = ({
         <AboutMe />
       </div>
       {/* Skills */}
-      <div
-        id={sectionIds[1].id}
-        className='min-h-screen flex flex-col items-center justify-center gap-16 py-16 bg-base-200'
-      >
-        <div className='text-6xl'>Skills</div>
-        <div className='scale-[0.8] min-h-[260px] w-full'>
-          <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
-        </div>
+      <div id={sectionIds[1].id}>
+        <Skills genres={genres} isDarkMode={isDarkMode} />
       </div>
       {/* Products */}
       <div
