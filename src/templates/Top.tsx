@@ -30,7 +30,7 @@ export const Top = ({
                   key={s.id}
                   className='flex items-center gap-4 link link-hover'
                 >
-                  <div className='text-2xl sm:text-4xl whitespace-nowrap'>
+                  <div className='text-2xl sm:text-3xl xl:text-4xl whitespace-nowrap'>
                     {s.name}
                   </div>
                   <div className='divider w-full' />
