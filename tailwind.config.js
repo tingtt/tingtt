@@ -2,7 +2,24 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fadeout: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+        'toast-push': {
+          '0%': {
+            opacity: 1,
+            transform: 'scale(1)',
+          },
+          to: {
+            opacity: 0,
+            transform: 'scale(0.9)',
+          },
+        },
+      },
+    },
     fontFamily: {
       sans: [
         '-apple-system',

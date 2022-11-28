@@ -1,4 +1,5 @@
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
+import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
 import {
   PropsSkillRadarChartGrid,
   SkillRadarChartGrid,
@@ -60,6 +61,11 @@ export const Top = ({
         className='min-h-screen flex flex-col items-center justify-center gap-16 py-16'
       >
         <div className='text-6xl'>Products</div>
+      </div>
+      <div className='toast toast-bottom toast-end chat chat-end p-8'>
+        <div className='animate-[toast-pop_0.25s_ease-out,toast-push_0.25s_ease-in_4s_forwards]'>
+          <ChatBubbleWelcome />
+        </div>
       </div>
     </div>
   )
