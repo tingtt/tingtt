@@ -1,9 +1,6 @@
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
-import {
-  PropsSkillRadarChartGrid,
-  SkillRadarChartGrid,
-} from '../molecules/SkillRadarChartsGrid'
+import { PropsSkillRadarChartGrid } from '../molecules/SkillRadarChartsGrid'
 import { AboutMe } from '../organisms/AboutMe'
 import { Hero } from '../organisms/Hero'
 import { Skills } from '../organisms/Skills'
@@ -62,6 +59,7 @@ export const Top = ({
       >
         <div className='text-6xl'>Products</div>
       </div>
+      {/* Toast */}
       <div className='toast toast-bottom toast-end chat chat-end p-8'>
         <div className='opacity-0 animate-[toast-pop_0.25s_ease-out_1s_forwards,toast-push_0.25s_ease-in_5s_forwards]'>
           <ChatBubbleWelcome />
