@@ -63,7 +63,7 @@ export const Top = ({
         <div className='text-6xl'>Products</div>
       </div>
       <div className='toast toast-bottom toast-end chat chat-end p-8'>
-        <div className='animate-[toast-pop_0.25s_ease-out,toast-push_0.25s_ease-in_4s_forwards]'>
+        <div className='opacity-0 animate-[toast-pop_0.25s_ease-out_1s_forwards,toast-push_0.25s_ease-in_5s_forwards]'>
           <ChatBubbleWelcome />
         </div>
       </div>

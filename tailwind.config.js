@@ -4,10 +4,6 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        fadeout: {
-          '0%': { opacity: 1 },
-          '100%': { opacity: 0 },
-        },
         'toast-push': {
           '0%': {
             opacity: 1,
