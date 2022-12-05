@@ -1,14 +1,21 @@
+import React from 'react'
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
+import { ProductCardProps } from '../atoms/ProductCard'
 import { PropsSkillRadarChartGrid } from '../molecules/SkillRadarChartsGrid'
 import { AboutMe } from '../organisms/AboutMe'
 import { Hero } from '../organisms/Hero'
+import { Products } from '../organisms/Products'
 import { Skills } from '../organisms/Skills'
 
 export const Top = ({
   genres,
   isDarkMode,
-}: PropsSkillRadarChartGrid & PropsDarkMode) => {
+  products,
+}: PropsSkillRadarChartGrid &
+  PropsDarkMode & {
+    products: ({ modalContent: React.ReactNode } & ProductCardProps)[]
+  }) => {
   const sectionIds = [
     { id: 'section-about-me', name: 'About me', sub: '私について' },
     { id: 'section-skills', name: 'Skills', sub: 'スキル' },
@@ -53,11 +60,8 @@ export const Top = ({
         <Skills genres={genres} isDarkMode={isDarkMode} />
       </div>
       {/* Products */}
-      <div
-        id={sectionIds[2].id}
-        className='min-h-screen flex flex-col items-center justify-center gap-16 py-16'
-      >
-        <div className='text-6xl'>Products</div>
+      <div id={sectionIds[2].id}>
+        <Products products={products} />
       </div>
       {/* Toast */}
       <div className='toast toast-bottom toast-end chat chat-end p-8'>
@@ -65,6 +69,19 @@ export const Top = ({
           <ChatBubbleWelcome />
         </div>
       </div>
+      {products.map((p) => (
+        <div key={p.id}>
+          <input type='checkbox' id={p.id} className='modal-toggle' />
+          <label htmlFor={p.id} className='modal cursor-pointer'>
+            <label
+              className='modal-box max-w-[90%] relative rounded-lg'
+              htmlFor=''
+            >
+              {p.modalContent}
+            </label>
+          </label>
+        </div>
+      ))}
     </div>
   )
 }

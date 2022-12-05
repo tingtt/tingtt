@@ -10,7 +10,13 @@ export const Skills = ({
   isDarkMode,
 }: PropsSkillRadarChartGrid & PropsDarkMode) => {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center gap-16 py-36 px-8 sm:px-16 lg:px-20 bg-base-200 bark:bg-base-300'>
+    <div
+      className={`
+        min-h-screen flex flex-col items-center justify-center gap-16
+        py-36 xsm:py-12 px-8 sm:px-16 lg:px-20
+        bg-base-200 bark:bg-base-300
+      `}
+    >
       <SectionTitle>Skills</SectionTitle>
       <div className='min-h-[260px] w-full'>
         <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
