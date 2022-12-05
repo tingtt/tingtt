@@ -1,17 +1,11 @@
-import { ProductTech } from '../atoms/ProductTech'
+import { ProductTech } from '../../domain/model/Products/@types'
+import { ProductTechDefault } from '../atoms/ProductTechDefault'
 import { ProductTechConsole } from '../atoms/ProductTechConsole'
 import { ProductTechDB } from '../atoms/ProductTechDB'
 import { ProductTechListHeader } from '../atoms/ProductTechListHeader'
 import { ProductTechPGLanguage } from '../atoms/ProductTechPGLanguage'
 
-export type PropsProductTechList = { techs: ProductTech[] }
-
-export type ProductTech = {
-  name: string
-  type?: 'server' | 'pg-lang' | 'db'
-}
-
-export const ProductTechList = ({ techs }: PropsProductTechList) => {
+export const ProductTechList = ({ techs }: { techs: ProductTech[] }) => {
   return (
     <div className='flex flex-col gap-4'>
       <ProductTechListHeader />
@@ -24,7 +18,7 @@ export const ProductTechList = ({ techs }: PropsProductTechList) => {
           } else if (t.type == 'db') {
             return <ProductTechDB key={t.name} name={t.name} />
           }
-          return <ProductTech key={t.name} name={t.name} />
+          return <ProductTechDefault key={t.name} name={t.name} />
         })}
       </div>
     </div>

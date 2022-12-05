@@ -1,15 +1,8 @@
 import Image from 'next/image'
+import { ProductImage } from '../../domain/model/Products/@types'
 import { Carousel } from './Carousel'
 
-export type PropsImageCarousel = {
-  images: Image[]
-}
-export type Image = {
-  name: string
-  src: string
-}
-
-export const ImageCarousel = ({ images }: PropsImageCarousel) => (
+export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
   <Carousel>
     {(images ?? []).map((i) => (
       <div key={i.name}>

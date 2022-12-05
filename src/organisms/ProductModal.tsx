@@ -1,22 +1,9 @@
-import {
-  ProductLinkList,
-  PropsProductLinkList,
-} from '../molecules/ProductLinkList'
-import { ImageCarousel, PropsImageCarousel } from '../molecules/ImageCarousel'
+import { ProductLinkList } from '../molecules/ProductLinkList'
+import { ImageCarousel } from '../molecules/ImageCarousel'
 import { ProductModalHeader } from '../molecules/ProductModalHeader'
-import {
-  ProductTechList,
-  PropsProductTechList,
-} from '../molecules/ProductTechList'
+import { ProductTechList } from '../molecules/ProductTechList'
 import { Markdown } from '../molecules/Markdown'
-
-export type PropsProductModal = {
-  id: string
-  title: string
-  description: string
-} & PropsProductLinkList &
-  PropsImageCarousel &
-  PropsProductTechList
+import { Product } from '../../domain/model/Products/@types'
 
 export const ProductModal = ({
   id,
@@ -25,7 +12,7 @@ export const ProductModal = ({
   techs,
   links,
   images,
-}: PropsProductModal) => {
+}: Product) => {
   return (
     <div className='flex flex-col gap-4'>
       <ProductModalHeader title={title} id={id} />

@@ -1,12 +1,13 @@
 import { LabelButtonClose } from '../atoms/LabelButtonClose'
-import {
-  ProductModalTitle,
-  PropsProductModalTitle,
-} from '../atoms/ProductModalTitle'
+import { ProductModalTitle } from '../atoms/ProductModalTitle'
 
-export type PropsModalHeader = { id?: string } & PropsProductModalTitle
-
-export const ProductModalHeader = ({ title, id }: PropsModalHeader) => (
+export const ProductModalHeader = ({
+  id,
+  title,
+}: {
+  id: string
+  title: string
+}) => (
   <div className='flex items-center'>
     <ProductModalTitle title={title} />
     <div className='modal-action ml-auto !mt-0'>

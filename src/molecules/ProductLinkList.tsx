@@ -1,3 +1,4 @@
+import { ProductLink } from '../../domain/model/Products/@types'
 import { LinkDefault } from '../atoms/LinkDefault'
 import { LinkDocs } from '../atoms/LinkDocs'
 import { LinkGitHub } from '../atoms/LinkGitHub'
@@ -5,15 +6,7 @@ import { LinkGitLab } from '../atoms/LinkGitLab'
 import { LinkSlide } from '../atoms/LinkSlide'
 import { LinkWeb } from '../atoms/LinkWeb'
 
-export type PropsProductLinkList = { links: ProductLink[] }
-
-export type ProductLink = {
-  name?: string
-  href: string
-  type?: 'github' | 'gitlab' | 'web' | 'docs' | 'slide'
-}
-
-export const ProductLinkList = ({ links }: PropsProductLinkList) => (
+export const ProductLinkList = ({ links }: { links: ProductLink[] }) => (
   <div className='flex flex-col gap-2 [&>*]:w-max'>
     {(links ?? []).map((l) => {
       if (l.type == 'github') {
