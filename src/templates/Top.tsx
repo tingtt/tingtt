@@ -74,7 +74,10 @@ export const Top = ({
           <input type='checkbox' id={p.id} className='modal-toggle' />
           <label htmlFor={p.id} className='modal cursor-pointer'>
             <label
-              className='modal-box max-w-[90%] relative rounded-lg'
+              className={`
+                modal-box max-w-[90%] relative rounded-lg
+                dark:border dark:border-base-content
+              `}
               htmlFor=''
             >
               {p.modalContent}
