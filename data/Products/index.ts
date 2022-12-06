@@ -22,6 +22,7 @@ export const PRODUCTS: Product[] = [
         type: 'gitlab',
       },
     ],
+    thumbnail: '/products/flow/thumbnail.png',
     images: [
       { name: 'timetable', src: '/products/flow/timetable.png' },
       { name: 'dashboard', src: '/products/flow/dashboard.png' },
@@ -61,6 +62,7 @@ export const PRODUCTS: Product[] = [
         type: 'github',
       },
     ],
+    thumbnail: '/products/hotcale/thumbnail.png',
     images: [
       {
         name: 'popup',
@@ -96,6 +98,7 @@ export const PRODUCTS: Product[] = [
         type: 'github',
       },
     ],
+    thumbnail: '/products/intellibase/thumbnail.png',
     images: [{ name: 'expo', src: '/products/intellibase/expo.jpg' }],
     techs: [
       { name: 'PHP', type: 'pg-lang' },
@@ -126,6 +129,7 @@ export const PRODUCTS: Product[] = [
         type: 'docs',
       },
     ],
+    thumbnail: '/products/tingttjp/thumbnail.png',
     images: [
       { name: 'k8s-diagram', src: '/products/tingttjp/k8s_diagram.png' },
       { name: 'argo-diagram', src: '/products/tingttjp/argo_diagram.png' },
@@ -135,6 +139,29 @@ export const PRODUCTS: Product[] = [
       { name: 'ArgoCD', type: 'server' },
       { name: 'Linux', type: 'server' },
       { name: 'Ubuntu', type: 'server' },
+    ],
+  },
+  {
+    id: 'slidev-cd',
+    title: 'コード化したスライドをCI/CD',
+    description: `slidev ( Markdown / Vue.js ) で記述したスライドを Kubernetes にデプロイし、アップデート時に自動デプロイを行うCDパイプラインを構築しました。`,
+    links: [],
+    // thumbnail: '',
+    images: [
+      { name: 'diagram', src: '/products/slidev/diagram.png' },
+      { name: 'flow', src: '/products/slidev/slidev.tingtt.jp_flow_1.png' },
+      {
+        name: 'k8s-argo',
+        src: '/products/slidev/slidev.tingtt.jp_k8s-argo_1.png',
+      },
+      { name: 'intro', src: '/products/slidev/slidev.tingtt.jp_intro_1.png' },
+    ],
+    techs: [
+      { name: 'Slidev', type: 'pg-lang' },
+      { name: 'Vue', type: 'pg-lang' },
+      { name: 'TailwindCSS', type: 'pg-lang' },
+      { name: 'Kubernetes', type: 'server' },
+      { name: 'ArgoCD', type: 'server' },
     ],
   },
   // {
