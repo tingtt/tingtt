@@ -3,6 +3,7 @@ export type Product = {
   title: string
   description: string
   links: ProductLink[]
+  thumbnail?: string
   images: ProductImage[]
   techs: ProductTech[]
 }

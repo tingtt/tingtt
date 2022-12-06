@@ -25,10 +25,10 @@ export const ProductModal = ({
             <ProductLinkList links={links} />
           </div>
           <div className='mt-6'>
-            <ProductTechList techs={techs} />
+            {techs && techs.length > 0 && <ProductTechList techs={techs} />}
           </div>
         </div>
-        {images && <ImageCarousel images={images} />}
+        {images && images.length > 0 && <ImageCarousel images={images} />}
       </div>
     </div>
   )

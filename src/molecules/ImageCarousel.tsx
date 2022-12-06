@@ -5,8 +5,8 @@ import { Carousel } from './Carousel'
 export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
   <Carousel>
     {(images ?? []).map((i) => (
-      <div key={i.name}>
-        <Image src={i.src} alt={i.name} width={800} height={500} />
+      <div key={i.name} className='flex items-center h-full'>
+        <Image src={i.src} alt={i.name} width={300} height={200} />
       </div>
     ))}
   </Carousel>

@@ -28,6 +28,7 @@ const Home: NextPage<Props> = ({ genres, products }) => {
         return {
           id: p.id,
           title: p.title,
+          thumbnail: p.thumbnail,
           modalContent: (
             <ProductModal
               id={p.id}
