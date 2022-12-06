@@ -108,15 +108,28 @@ export const PRODUCTS: Product[] = [
   {
     id: 'tingttjp',
     title: '自宅サーバーDevOps',
-    description: '',
+    description: ``,
     links: [
       {
         name: 'スライド',
         href: 'https://slidev.tingtt.jp/k8s-argo',
         type: 'slide',
       },
+      {
+        name: '構築ドキュメント（自宅サーバー）',
+        href: 'https://growi.tingtt.jp/on-premises',
+        type: 'docs',
+      },
+      {
+        name: '構築ドキュメント（自宅K8s）',
+        href: 'https://growi.tingtt.jp/k8s',
+        type: 'docs',
+      },
     ],
-    images: [],
+    images: [
+      { name: 'k8s-diagram', src: '/products/tingttjp/k8s_diagram.png' },
+      { name: 'argo-diagram', src: '/products/tingttjp/argo_diagram.png' },
+    ],
     techs: [
       { name: 'Kubernetes', type: 'server' },
       { name: 'ArgoCD', type: 'server' },
@@ -125,11 +138,21 @@ export const PRODUCTS: Product[] = [
     ],
   },
   // {
-  //   id: ,
-  //   title: ,
-  //   description: ,
-  //   links: ,
-  //   images: ,
-  //   techs: ,
+  //   id: 'NAME',
+  //   title: '',
+  //   description: ``,
+  //   links: [
+  //     {
+  //       name: 'スライド',
+  //       href: 'https://slidev.tingtt.jp/NAME',
+  //       type: 'slide',
+  //     },
+  //   ],
+  //   images: [
+  //     { name: '', src: '/products/NAME/' }
+  //   ],
+  //   techs: [
+  //     { name: '', type: 'pg-lang' }
+  //   ],
   // },
 ]
