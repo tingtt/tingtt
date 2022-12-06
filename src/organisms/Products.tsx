@@ -9,7 +9,7 @@ export const Products = ({ products }: PropsProductCardGrid) => {
     <div
       className={`
         min-h-screen flex flex-col items-center justify-center gap-16
-        py-36 xsm:py-12 px-8 sm:px-16 lg:px-20
+        py-36 xsm:py-12 px-8 sm:px-16 lg:px-18
       `}
     >
       <SectionTitle>Products</SectionTitle>
