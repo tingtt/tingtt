@@ -26,6 +26,7 @@ export const PRODUCTS: Product[] = [
     images: [
       { name: 'timetable', src: '/products/flow/timetable.png' },
       { name: 'dashboard', src: '/products/flow/dashboard.png' },
+      // TODO: Figmaのスクショを追加
     ],
     techs: [
       { name: 'TypeScript', type: 'pg-lang' },
@@ -100,6 +101,7 @@ export const PRODUCTS: Product[] = [
     ],
     thumbnail: '/products/intellibase/thumbnail.png',
     images: [{ name: 'expo', src: '/products/intellibase/expo.jpg' }],
+    // TODO: アプリのスクショを追加
     techs: [
       { name: 'PHP', type: 'pg-lang' },
       { name: 'SwiftUI', type: 'pg-lang' },
