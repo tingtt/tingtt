@@ -1,13 +1,17 @@
-import Image from 'next/image'
+import { Carousel } from 'react-responsive-carousel'
 import { ProductImage } from '../../domain/model/Products/@types'
-import { Carousel } from './Carousel'
+import 'react-responsive-carousel/lib/styles/carousel.css'
 
 export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
   <Carousel>
     {(images ?? []).map((i) => (
-      <div key={i.name} className='flex items-center h-full'>
-        <Image src={i.src} alt={i.name} width={300} height={200} />
-      </div>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        key={i.name}
+        src={i.src}
+        alt={i.name}
+        className='flex items-center h-full'
+      />
     ))}
   </Carousel>
 )
