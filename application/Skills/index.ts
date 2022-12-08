@@ -11,9 +11,9 @@ if (err != null) {
   throw err
 }
 
-export const getSkills = () => skills.found()
+export const getSkills = () => skills.find()
 export const getSkillGenres = (): [Genre[], Error | null] => {
-  const [ss, err] = skills.found()
+  const [ss, err] = skills.find()
   if (err != null) {
     return [[], err]
   }

@@ -9,7 +9,7 @@ export class Skills {
 
   add(s: Skill) {
     // validate
-    const [skills, err] = this.found()
+    const [skills, err] = this.find()
     if (err != null) {
       return err
     }
@@ -35,10 +35,10 @@ export class Skills {
     // add
     return this.repo.add(s)
   }
-  found() {
+  find() {
     return this.repo.find()
   }
-  fundOne(name: string) {
+  findOne(name: string) {
     return this.repo.findOne(name)
   }
 }

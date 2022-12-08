@@ -9,7 +9,7 @@ export class Products {
 
   add(s: Product) {
     // validate
-    const [products, err] = this.found()
+    const [products, err] = this.find()
     if (err != null) {
       return err
     }
@@ -21,10 +21,10 @@ export class Products {
     // add
     return this.repo.add(s)
   }
-  found() {
+  find() {
     return this.repo.find()
   }
-  fundOne(name: string) {
+  findOne(name: string) {
     return this.repo.findOne(name)
   }
 }

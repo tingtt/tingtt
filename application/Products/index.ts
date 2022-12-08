@@ -10,4 +10,4 @@ if (err != null) {
   throw err
 }
 
-export const getProducts = () => products.found()
+export const getProducts = () => products.find()
