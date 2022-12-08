@@ -10,7 +10,7 @@ export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
         key={i.name}
         src={i.src}
         alt={i.name}
-        className='flex items-center h-full'
+        className='flex items-center h-full object-contain'
       />
     ))}
   </Carousel>
