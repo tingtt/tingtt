@@ -6,20 +6,35 @@
   .atomic-atom-cover {
     @apply absolute z-[99] top-0 left-0 w-full h-full hover:outline hover:outline-4 -outline-offset-4 outline-cyan-500/80 hover:bg-cyan-500/20;
   }
+  .atomic-atom {
+    @apply absolute z-[99] top-0 left-0 w-full h-full outline outline-4 -outline-offset-4 outline-cyan-500/80 bg-cyan-500/20;
+  }
 
   .atomic-molecule-cover {
     @apply absolute z-[98] top-0 left-0 w-full h-full hover:outline hover:outline-4 -outline-offset-4 outline-teal-500/80 hover:bg-teal-500/20;
+  }
+  .atomic-molecule {
+    @apply absolute z-[98] top-0 left-0 w-full h-full outline outline-4 -outline-offset-4 outline-teal-500/80 bg-teal-500/20;
   }
 
   .atomic-organism-cover {
     @apply absolute z-[97] top-0 left-0 w-full h-full hover:outline hover:outline-4 -outline-offset-4 outline-green-500/80 hover:bg-green-500/20;
   }
+  .atomic-organism {
+    @apply absolute z-[97] top-0 left-0 w-full h-full outline outline-4 -outline-offset-4 outline-green-500/80 bg-green-500/20;
+  }
 
   .atomic-template-cover {
     @apply absolute z-[96] top-0 left-0 w-full h-full hover:outline hover:outline-4 -outline-offset-4 outline-yellow-900/80 hover:bg-yellow-900/20;
   }
+  .atomic-template {
+    @apply absolute z-[96] top-0 left-0 w-full h-full outline outline-4 -outline-offset-4 outline-yellow-900/80 bg-yellow-900/20;
+  }
 
   .atomic-page-cover {
     @apply absolute z-[95] top-0 left-0 w-full h-full hover:outline hover:outline-4 -outline-offset-4 outline-orange-400/80 hover:bg-orange-400/20;
+  }
+  .atomic-page {
+    @apply absolute z-[95] top-0 left-0 w-full h-full outline outline-4 -outline-offset-4 outline-orange-400/80 bg-orange-400/20;
   }
 }

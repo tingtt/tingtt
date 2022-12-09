@@ -1,5 +1,6 @@
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
 import { PropsToggleInspect, ToggleInspect } from '../atoms/ToggleInspect'
+import { AtomicInspectLabelListToast } from '../molecules/AtomicInspectLabelListToast'
 import {
   InspectFileTree,
   PropsInspectFileTree,
@@ -36,8 +37,9 @@ export const Inspect = ({
           inspecting={inspecting}
         />
       </div>
-      <div className='toast toast-top z-[100]'>
+      <div className='toast toast-top z-[100] flex-row-reverse'>
         <ToggleInspect inspecting={inspecting} setInspecting={setInspecting} />
+        {inspecting && <AtomicInspectLabelListToast />}
       </div>
     </div>
   )
