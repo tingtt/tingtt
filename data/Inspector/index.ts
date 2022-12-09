@@ -149,6 +149,10 @@ export const COMPONENTS: Component[] = [
     level: ATOMIC_LEVEL_ATOM,
   },
   {
+    name: 'OutlineContent',
+    level: ATOMIC_LEVEL_ATOM,
+  },
+  {
     name: 'ProductCard',
     level: ATOMIC_LEVEL_ATOM,
   },

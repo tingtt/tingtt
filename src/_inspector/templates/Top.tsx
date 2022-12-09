@@ -10,6 +10,7 @@ import {
 } from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
+import { OutlineContent } from '../atoms/OutlineContent'
 import { ProductCardProps } from '../atoms/ProductCard'
 import { PropsSkillRadarChartGrid } from '../molecules/SkillRadarChartsGrid'
 import { AboutMe } from '../organisms/AboutMe'
@@ -47,20 +48,11 @@ export const Top = ({
             return {
               id: s.id,
               content: (
-                <div
-                  key={s.id}
-                  className='relative flex items-center gap-4 link link-hover'
-                >
-                  <div className='text-2xl md:text-3xl 2xl:text-4xl whitespace-nowrap'>
-                    {s.name}
-                  </div>
-                  <div className='divider w-full' />
-                  <div className='whitespace-nowrap text-sm md:text-base'>
-                    {s.sub}
-                  </div>
-                  {/* Cover */}
-                  {inspecting && <div className='atomic-atom-cover' />}
-                </div>
+                <OutlineContent
+                  name={s.name}
+                  subText={s.sub}
+                  inspecting={inspecting}
+                />
               ),
             }
           }),

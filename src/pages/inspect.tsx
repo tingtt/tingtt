@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { getProducts } from '../../application/Products'
 import { getSkillsGroupedByGenre } from '../../application/Skills'
 import { COMPONENTS } from '../../data/Inspector'
-import { useComponent } from '../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   ATOMIC_LEVEL_MOLECULE,

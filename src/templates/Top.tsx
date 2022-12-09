@@ -1,6 +1,7 @@
 import React from 'react'
 import { PropsDarkMode } from '../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
+import { OutlineContent } from '../atoms/OutlineContent'
 import { ProductCardProps } from '../atoms/ProductCard'
 import { PropsSkillRadarChartGrid } from '../molecules/SkillRadarChartsGrid'
 import { AboutMe } from '../organisms/AboutMe'
@@ -32,20 +33,7 @@ export const Top = ({
           targets: sectionIds.map((s) => {
             return {
               id: s.id,
-              content: (
-                <div
-                  key={s.id}
-                  className='flex items-center gap-4 link link-hover'
-                >
-                  <div className='text-2xl sm:text-3xl xl:text-4xl whitespace-nowrap'>
-                    {s.name}
-                  </div>
-                  <div className='divider w-full' />
-                  <div className='whitespace-nowrap text-sm sm:text-base'>
-                    {s.sub}
-                  </div>
-                </div>
-              ),
+              content: <OutlineContent name={s.name} subText={s.sub} />,
             }
           }),
           smooth: true,
