@@ -1,4 +1,5 @@
 import { Link as Scroll } from 'react-scroll'
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 
 export type ScrollTarget = {
   id: string
@@ -14,7 +15,8 @@ export const Outline = ({
   orientation = 'vertical',
   targets,
   smooth = true,
-}: PropsOutline) => {
+  inspecting,
+}: PropsOutline & PropsInspecting) => {
   return (
     <div
       className={`relative flex ${
@@ -23,13 +25,18 @@ export const Outline = ({
     >
       {targets.map((t) => {
         return (
-          <Scroll key={t.id} to={t.id} smooth={smooth} className='relative'>
+          <Scroll
+            key={t.id}
+            to={inspecting ? '' : t.id}
+            smooth={smooth}
+            className='relative'
+          >
             {t.content}
           </Scroll>
         )
       })}
       {/* Cover */}
-      <div className='atomic-molecule-cover' />
+      {inspecting && <div className='atomic-molecule-cover' />}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { SectionTitle } from '../atoms/SectionTitle'
 import {
@@ -8,22 +9,27 @@ import {
 export const Skills = ({
   genres,
   isDarkMode,
-}: PropsSkillRadarChartGrid & PropsDarkMode) => {
+  inspecting,
+}: PropsSkillRadarChartGrid & PropsDarkMode & PropsInspecting) => {
   return (
     <div
       className={`
         relative
         min-h-screen flex flex-col items-center justify-center gap-16
-        py-36 xsm:py-12 px-8 sm:px-16 lg:px-20
+        py-36 smm:py-12 px-8 md:px-16 xl:px-20
         bg-base-200 bark:bg-base-300
       `}
     >
-      <SectionTitle>Skills</SectionTitle>
+      <SectionTitle inspecting={inspecting}>Skills</SectionTitle>
       <div className='min-h-[260px] w-full'>
-        <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
+        <SkillRadarChartGrid
+          genres={genres}
+          isDarkMode={isDarkMode}
+          inspecting={inspecting}
+        />
       </div>
       {/* Cover */}
-      <div className='atomic-organism-cover' />
+      {inspecting && <div className='atomic-organism-cover' />}
     </div>
   )
 }

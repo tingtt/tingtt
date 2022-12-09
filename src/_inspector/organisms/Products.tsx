@@ -1,22 +1,26 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 import { SectionTitle } from '../atoms/SectionTitle'
 import {
   ProductCardGrid,
   PropsProductCardGrid,
 } from '../molecules/ProductCardGrid'
 
-export const Products = ({ products }: PropsProductCardGrid) => {
+export const Products = ({
+  products,
+  inspecting,
+}: PropsProductCardGrid & PropsInspecting) => {
   return (
     <div
       className={`
         relative
         min-h-screen flex flex-col items-center justify-center gap-16
-        py-36 xsm:py-12 px-8 sm:px-16 lg:px-18
+        py-36 smm:py-12 px-8 md:px-16 xl:px-18
       `}
     >
-      <SectionTitle>Products</SectionTitle>
-      <ProductCardGrid products={products} />
+      <SectionTitle inspecting={inspecting}>Products</SectionTitle>
+      <ProductCardGrid products={products} inspecting={inspecting} />
       {/* Cover */}
-      <div className='atomic-organism-cover' />
+      {inspecting && <div className='atomic-organism-cover' />}
     </div>
   )
 }

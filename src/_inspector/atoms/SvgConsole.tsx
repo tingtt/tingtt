@@ -1,10 +1,13 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
 export const SvgConsole = ({
   width,
   height,
+  inspecting,
 }: {
   width: number
   height: number
-}) => (
+} & PropsInspecting) => (
   <div className='relative'>
     <svg
       width={width}
@@ -17,6 +20,6 @@ export const SvgConsole = ({
       <path d='M0 3H44V40.7143H0V3ZM3.14286 9.28571V37.5714H40.8571V9.28571H3.14286ZM7.07143 14.5238H12.0476L17.0238 21.3333L12.0476 28.1429H7.07143L12.0476 21.3333L7.07143 14.5238Z' />
     </svg>
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

@@ -1,7 +1,14 @@
-export const SectionTitle = ({ children }: { children: string }) => (
-  <div className='relative text-5xl sm:text-6xl'>
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
+export const SectionTitle = ({
+  children,
+  inspecting,
+}: {
+  children: string
+} & PropsInspecting) => (
+  <div className='relative text-5xl md:text-6xl'>
     {children}
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

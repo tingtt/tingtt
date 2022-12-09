@@ -1,6 +1,9 @@
 import React from 'react'
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 
-export const SvgBug = (props: React.SVGAttributes<SVGSVGElement>) => {
+export const SvgBug = (
+  props: React.SVGAttributes<SVGSVGElement> & PropsInspecting
+) => {
   return (
     <div className='relative'>
       <svg
@@ -17,7 +20,7 @@ export const SvgBug = (props: React.SVGAttributes<SVGSVGElement>) => {
         />
       </svg>
       {/* Cover */}
-      <div className='atomic-atom-cover' />
+      {props.inspecting && <div className='atomic-atom-cover' />}
     </div>
   )
 }

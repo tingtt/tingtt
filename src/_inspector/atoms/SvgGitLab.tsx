@@ -1,10 +1,13 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
 export const SvgGitLab = ({
   width,
   height,
+  inspecting,
 }: {
   width: number
   height: number
-}) => (
+} & PropsInspecting) => (
   <div className='relative'>
     <svg
       width={width}
@@ -31,6 +34,6 @@ export const SvgGitLab = ({
       />
     </svg>
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

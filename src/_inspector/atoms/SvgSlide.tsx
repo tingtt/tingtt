@@ -1,10 +1,13 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
 export const SvgSlide = ({
   width,
   height,
+  inspecting,
 }: {
   width: number
   height: number
-}) => (
+} & PropsInspecting) => (
   <div className='relative'>
     <svg
       width={width}
@@ -18,6 +21,6 @@ export const SvgSlide = ({
       <path d='M4.88889 41.875L39.1111 41.875C41.8244 41.875 44 39.632 44 36.8906L44 6.98438C44 4.24297 41.8244 2 39.1111 2L4.88889 2C2.2 2 3.2899e-06 4.24297 3.05024e-06 6.98437L4.35748e-07 36.8906C1.96087e-07 39.632 2.17556 41.875 4.88889 41.875ZM4.88889 6.98437L39.1111 6.98438L39.1111 31.9063L4.88889 31.9062L4.88889 6.98437Z' />
     </svg>
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

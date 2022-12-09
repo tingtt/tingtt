@@ -1,10 +1,13 @@
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
 export const SvgZenn = ({
   width,
   height,
+  inspecting,
 }: {
   width: number
   height: number
-}) => (
+} & PropsInspecting) => (
   <div className='relative'>
     <svg
       width={width}
@@ -27,6 +30,6 @@ export const SvgZenn = ({
       </g>
     </svg>
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

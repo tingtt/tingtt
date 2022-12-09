@@ -1,7 +1,8 @@
 import { LabelHTMLAttributes } from 'react'
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 
 export const LabelButtonClose = (
-  props: LabelHTMLAttributes<HTMLLabelElement>
+  props: LabelHTMLAttributes<HTMLLabelElement> & PropsInspecting
 ) => {
   return (
     <label {...props} className='btn btn-circle btn-ghost'>
@@ -20,7 +21,7 @@ export const LabelButtonClose = (
         />
       </svg>
       {/* Cover */}
-      <div className='atomic-atom-cover' />
+      {props.inspecting && <div className='atomic-atom-cover' />}
     </label>
   )
 }

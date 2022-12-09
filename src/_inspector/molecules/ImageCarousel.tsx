@@ -1,8 +1,14 @@
 import { Carousel } from 'react-responsive-carousel'
 import { ProductImage } from '../../../domain/model/Products/@types'
 import 'react-responsive-carousel/lib/styles/carousel.css'
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 
-export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
+export const ImageCarousel = ({
+  images,
+  inspecting,
+}: {
+  images: ProductImage[]
+} & PropsInspecting) => (
   <div className='relative'>
     <Carousel>
       {(images ?? []).map((i) => (
@@ -16,6 +22,6 @@ export const ImageCarousel = ({ images }: { images: ProductImage[] }) => (
       ))}
     </Carousel>
     {/* Cover */}
-    <div className='atomic-molecule-cover' />
+    {inspecting && <div className='atomic-molecule-cover' />}
   </div>
 )

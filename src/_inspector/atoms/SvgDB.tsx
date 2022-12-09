@@ -1,4 +1,13 @@
-export const SvgDB = ({ width, height }: { width: number; height: number }) => (
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
+export const SvgDB = ({
+  width,
+  height,
+  inspecting,
+}: {
+  width: number
+  height: number
+} & PropsInspecting) => (
   <div className='relative'>
     <svg
       width={width}
@@ -13,6 +22,6 @@ export const SvgDB = ({ width, height }: { width: number; height: number }) => (
       <path d='M40.1096 28.4368C39.4211 31.8563 31.5601 34.5559 22.0044 34.5559C12.4487 34.5559 4.56878 31.8558 3.87988 28.4368L3.88173 37.3919C3.88173 41.0428 11.9958 43.9996 22.0044 43.9996C32.0126 43.9996 40.1267 41.0418 40.1267 37.3919L40.1096 28.4368Z' />
     </svg>
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

@@ -9,15 +9,18 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 
 export const SkillRadarChart = ({
   name,
   color,
   skills,
   isDarkMode,
+  inspecting,
 }: Genre & {
   skills: Skill[]
-} & PropsDarkMode) => {
+} & PropsDarkMode &
+  PropsInspecting) => {
   return (
     <div key={name} className='relative w-full max-w-[370px] aspect-[9/7]'>
       <ResponsiveContainer width='100%' height='100%'>
@@ -48,7 +51,7 @@ export const SkillRadarChart = ({
         </RadarChart>
       </ResponsiveContainer>
       {/* Cover */}
-      <div className='atomic-atom-cover' />
+      {inspecting && <div className='atomic-atom-cover' />}
     </div>
   )
 }

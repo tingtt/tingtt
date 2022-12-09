@@ -1,7 +1,12 @@
-export const ProductModalTitle = ({ title }: { title: string }) => (
-  <div className='relative text-2xl xl:text-3xl'>
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
+export const ProductModalTitle = ({
+  title,
+  inspecting,
+}: { title: string } & PropsInspecting) => (
+  <div className='relative text-2xl 2xl:text-3xl'>
     {title}
     {/* Cover */}
-    <div className='atomic-atom-cover' />
+    {inspecting && <div className='atomic-atom-cover' />}
   </div>
 )

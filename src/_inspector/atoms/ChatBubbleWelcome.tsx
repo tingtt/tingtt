@@ -1,4 +1,6 @@
-export const ChatBubbleWelcome = () => {
+import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+
+export const ChatBubbleWelcome = ({ inspecting }: PropsInspecting) => {
   return (
     <div
       className={`
@@ -24,7 +26,7 @@ export const ChatBubbleWelcome = () => {
         <span>Welcome to my portfolio !</span>
       </div>
       {/* Cover */}
-      <div className='atomic-atom-cover' />
+      {inspecting && <div className='atomic-atom-cover' />}
     </div>
   )
 }
