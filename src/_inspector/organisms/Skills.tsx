@@ -1,4 +1,12 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_ORGANISM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { SectionTitle } from '../atoms/SectionTitle'
 import {
@@ -11,6 +19,10 @@ export const Skills = ({
   isDarkMode,
   inspecting,
 }: PropsSkillRadarChartGrid & PropsDarkMode & PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = { name: 'Skills', level: ATOMIC_LEVEL_ORGANISM }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div
       className={`
@@ -29,7 +41,14 @@ export const Skills = ({
         />
       </div>
       {/* Cover */}
-      {inspecting && <div className='atomic-organism-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-organism-cover ${
+            isSelected ? 'atomic-molecule' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

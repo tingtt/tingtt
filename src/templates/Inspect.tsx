@@ -11,7 +11,6 @@ import { Top } from '../_inspector/templates/Top'
 
 export const Inspect = ({
   files,
-  selected,
   genres,
   isDarkMode,
   products,
@@ -25,11 +24,11 @@ export const Inspect = ({
   return (
     <div className='flex'>
       {/* file tree */}
-      <div className='w-1/5 border-r'>
-        <InspectFileTree files={files} selected={selected} />
+      <div className='h-screen overflow-y-scroll w-1/5 border-r'>
+        <InspectFileTree files={files} />
       </div>
       {/* main */}
-      <div className='overflow-hidden'>
+      <div className='h-screen overflow-y-scroll overflow-x-hidden'>
         <Top
           genres={genres}
           isDarkMode={isDarkMode}

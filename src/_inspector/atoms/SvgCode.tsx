@@ -1,4 +1,12 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_ATOM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 
 export const SvgCode = ({
   width,
@@ -7,19 +15,30 @@ export const SvgCode = ({
 }: {
   width: number
   height: number
-} & PropsInspecting) => (
-  <div className='relative'>
-    <svg
-      width={width}
-      height={height}
-      viewBox='0 0 44 44'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-      className='fill-[#1B1817] dark:fill-[white]'
-    >
-      <path d='M16.28 31.9667L6.16 22L16.28 12.0333L13.2 9L0 22L13.2 35L16.28 31.9667ZM27.72 31.9667L37.84 22L27.72 12.0333L30.8 9L44 22L30.8 35L27.72 31.9667Z' />
-    </svg>
-    {/* Cover */}
-    {inspecting && <div className='atomic-atom-cover' />}
-  </div>
-)
+} & PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = { name: 'SvgCode', level: ATOMIC_LEVEL_ATOM }
+  const isSelected = useComponentSelected(component)
+
+  return (
+    <div className='relative'>
+      <svg
+        width={width}
+        height={height}
+        viewBox='0 0 44 44'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='fill-[#1B1817] dark:fill-[white]'
+      >
+        <path d='M16.28 31.9667L6.16 22L16.28 12.0333L13.2 9L0 22L13.2 35L16.28 31.9667ZM27.72 31.9667L37.84 22L27.72 12.0333L30.8 9L44 22L30.8 35L27.72 31.9667Z' />
+      </svg>
+      {/* Cover */}
+      {inspecting && (
+        <div
+          className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
+          onClick={() => setComponent(component)}
+        />
+      )}
+    </div>
+  )
+}

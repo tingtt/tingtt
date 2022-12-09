@@ -1,5 +1,13 @@
 import React from 'react'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_ATOM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 
 export const LinkExternal = ({
   href,
@@ -8,10 +16,24 @@ export const LinkExternal = ({
 }: {
   href: string
 } & React.PropsWithChildren &
-  PropsInspecting) => (
-  <a className='relative'>
-    {children}
-    {/* Cover */}
-    {inspecting && <div className='atomic-atom-cover' />}
-  </a>
-)
+  PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'LinkExternal',
+    level: ATOMIC_LEVEL_ATOM,
+  }
+  const isSelected = useComponentSelected(component)
+
+  return (
+    <a className='relative'>
+      {children}
+      {/* Cover */}
+      {inspecting && (
+        <div
+          className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
+          onClick={() => setComponent(component)}
+        />
+      )}
+    </a>
+  )
+}

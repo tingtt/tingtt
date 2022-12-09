@@ -4,7 +4,15 @@ import { ProductTechConsole } from '../atoms/ProductTechConsole'
 import { ProductTechDB } from '../atoms/ProductTechDB'
 import { ProductTechListHeader } from '../atoms/ProductTechListHeader'
 import { ProductTechPGLanguage } from '../atoms/ProductTechPGLanguage'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  ATOMIC_LEVEL_MOLECULE,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
 
 export const ProductTechList = ({
   techs,
@@ -12,6 +20,13 @@ export const ProductTechList = ({
 }: {
   techs: ProductTech[]
 } & PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'ProductTechList',
+    level: ATOMIC_LEVEL_MOLECULE,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div className='relative flex flex-col gap-4'>
       <ProductTechListHeader inspecting={inspecting} />
@@ -52,7 +67,14 @@ export const ProductTechList = ({
         })}
       </div>
       {/* Cover */}
-      {inspecting && <div className='atomic-molecule-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-molecule-cover ${
+            isSelected ? 'atomic-molecule' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

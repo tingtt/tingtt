@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react'
 import { getProducts } from '../../application/Products'
 import { getSkillsGroupedByGenre } from '../../application/Skills'
 import { COMPONENTS } from '../../data/Inspector'
+import { useComponent } from '../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   ATOMIC_LEVEL_MOLECULE,
   ATOMIC_LEVEL_ORGANISM,
   ATOMIC_LEVEL_PAGE,
+  ATOMIC_LEVEL_TEMPLATE,
 } from '../../domain/model/Inspector/@types'
 import { Product } from '../../domain/model/Products/@types'
 import { Inspect } from '../templates/Inspect'
@@ -32,17 +34,10 @@ const Home: NextPage<Props> = ({ genres, products }) => {
     <Inspect
       files={{
         pages: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_PAGE),
-        templates: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_MOLECULE),
+        templates: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_TEMPLATE),
         organisms: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_ORGANISM),
         molecules: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_MOLECULE),
         atoms: COMPONENTS.filter((c) => c.level == ATOMIC_LEVEL_ATOM),
-      }}
-      selected={{
-        name: '',
-        level: {
-          name: 'atom',
-          color: 'cyan-500',
-        },
       }}
       genres={genres}
       isDarkMode={isDarkMode}

@@ -4,7 +4,15 @@ import { ProductModalHeader } from '../molecules/ProductModalHeader'
 import { ProductTechList } from '../molecules/ProductTechList'
 import { Markdown } from '../molecules/Markdown'
 import { Product } from '../../../domain/model/Products/@types'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  ATOMIC_LEVEL_ORGANISM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
 
 export const ProductModal = ({
   id,
@@ -15,6 +23,13 @@ export const ProductModal = ({
   images,
   inspecting,
 }: Product & PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'ProductModal',
+    level: ATOMIC_LEVEL_ORGANISM,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div className='relative flex flex-col gap-4'>
       <ProductModalHeader title={title} id={id} inspecting={inspecting} />
@@ -37,7 +52,14 @@ export const ProductModal = ({
         )}
       </div>
       {/* Cover */}
-      {inspecting && <div className='atomic-organism-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-organism-cover ${
+            isSelected ? 'atomic-molecule' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

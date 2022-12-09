@@ -1,9 +1,24 @@
 import { LabelHTMLAttributes } from 'react'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_ATOM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 
 export const LabelButtonClose = (
   props: LabelHTMLAttributes<HTMLLabelElement> & PropsInspecting
 ) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'LabelButtonClose',
+    level: ATOMIC_LEVEL_ATOM,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <label {...props} className='btn btn-circle btn-ghost'>
       <svg
@@ -21,7 +36,12 @@ export const LabelButtonClose = (
         />
       </svg>
       {/* Cover */}
-      {props.inspecting && <div className='atomic-atom-cover' />}
+      {props.inspecting && (
+        <div
+          className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </label>
   )
 }

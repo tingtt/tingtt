@@ -9,10 +9,9 @@ export type PropsInspectFileTree = {
     molecules: Component[]
     atoms: Component[]
   }
-  selected: Component
 }
 
-export const InspectFileTree = ({ files, selected }: PropsInspectFileTree) => {
+export const InspectFileTree = ({ files }: PropsInspectFileTree) => {
   return (
     <div>
       {Object.keys(files).map((key) => {
@@ -22,14 +21,7 @@ export const InspectFileTree = ({ files, selected }: PropsInspectFileTree) => {
           | 'organisms'
           | 'molecules'
           | 'atoms'
-        return (
-          <FileListCollapse
-            key={dir}
-            dirName={dir}
-            files={files[dir]}
-            selected={selected}
-          />
-        )
+        return <FileListCollapse key={dir} dirName={dir} files={files[dir]} />
       })}
     </div>
   )

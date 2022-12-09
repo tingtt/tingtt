@@ -9,7 +9,15 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  ATOMIC_LEVEL_ATOM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
 
 export const SkillRadarChart = ({
   name,
@@ -21,6 +29,13 @@ export const SkillRadarChart = ({
   skills: Skill[]
 } & PropsDarkMode &
   PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'SkillRadarChart',
+    level: ATOMIC_LEVEL_ATOM,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div key={name} className='relative w-full max-w-[370px] aspect-[9/7]'>
       <ResponsiveContainer width='100%' height='100%'>
@@ -51,7 +66,12 @@ export const SkillRadarChart = ({
         </RadarChart>
       </ResponsiveContainer>
       {/* Cover */}
-      {inspecting && <div className='atomic-atom-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

@@ -1,9 +1,24 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_MOLECULE,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 import { BugRoad } from '../atoms/BugRoad'
 import { HeroCaption } from '../atoms/HeroCaption'
 import { HeroCaptionSub } from '../atoms/HeroCaptionSub'
 
 export const HeroLogoCaption = ({ inspecting }: PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'HeroLogoCaption',
+    level: ATOMIC_LEVEL_MOLECULE,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div className='relative flex items-center gap-8 md:gap-16 pr-16 w-full max-w-full'>
       <div className='flex items-center w-8 md:w-auto h-0 overflow-visible'>
@@ -29,7 +44,14 @@ export const HeroLogoCaption = ({ inspecting }: PropsInspecting) => {
         </div>
       </div>
       {/* Cover */}
-      {inspecting && <div className='atomic-molecule-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-molecule-cover ${
+            isSelected ? 'atomic-molecule' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

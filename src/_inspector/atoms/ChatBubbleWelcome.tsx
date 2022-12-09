@@ -1,6 +1,21 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_ATOM,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 
 export const ChatBubbleWelcome = ({ inspecting }: PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'ChatBubbleWelcome',
+    level: ATOMIC_LEVEL_ATOM,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div
       className={`
@@ -26,7 +41,12 @@ export const ChatBubbleWelcome = ({ inspecting }: PropsInspecting) => {
         <span>Welcome to my portfolio !</span>
       </div>
       {/* Cover */}
-      {inspecting && <div className='atomic-atom-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

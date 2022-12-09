@@ -1,4 +1,12 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_MOLECULE,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 import { Genre, Skill } from '../../../domain/model/Skills/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { SkillRadarChart } from '../atoms/SkillRadarChart'
@@ -12,6 +20,13 @@ export const SkillRadarChartGrid = ({
   isDarkMode,
   inspecting,
 }: PropsSkillRadarChartGrid & PropsDarkMode & PropsInspecting) => {
+  const [_, setComponent] = useComponent()
+  const component: Component = {
+    name: 'SkillRadarChartsGrid',
+    level: ATOMIC_LEVEL_MOLECULE,
+  }
+  const isSelected = useComponentSelected(component)
+
   return (
     <div className='relative grid gap-12 lg:grid-cols-2 2xl:grid-cols-4 justify-items-center'>
       {genres.map(({ genre, skills }) => (
@@ -24,7 +39,14 @@ export const SkillRadarChartGrid = ({
         />
       ))}
       {/* Cover */}
-      {inspecting && <div className='atomic-molecule-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-molecule-cover ${
+            isSelected ? 'atomic-molecule' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }

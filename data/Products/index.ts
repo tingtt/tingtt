@@ -8,7 +8,7 @@ export const PRODUCTS: Product[] = [
     links: [
       {
         name: 'Inspect',
-        href: 'https://www.tingtt.jp/inspect',
+        href: '/inspect',
         type: 'web',
       },
     ],

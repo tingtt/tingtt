@@ -1,5 +1,13 @@
-import React, { useEffect } from 'react'
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
+import React from 'react'
+import {
+  useComponent,
+  useComponentSelected,
+} from '../../../domain/model/Inspector'
+import {
+  ATOMIC_LEVEL_TEMPLATE,
+  Component,
+  PropsInspecting,
+} from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
 import { ProductCardProps } from '../atoms/ProductCard'
@@ -24,6 +32,10 @@ export const Top = ({
     { id: 'section-products', name: 'Products', sub: '製作物' },
   ]
   Object.freeze(sectionIds)
+
+  const [_, setComponent] = useComponent()
+  const component: Component = { name: 'Top', level: ATOMIC_LEVEL_TEMPLATE }
+  const isSelected = useComponentSelected(component)
 
   return (
     <div className='relative'>
@@ -95,7 +107,14 @@ export const Top = ({
         </div>
       ))}
       {/* Cover */}
-      {inspecting && <div className='atomic-template-cover' />}
+      {inspecting && (
+        <div
+          className={`atomic-template-cover ${
+            isSelected ? 'atomic-template' : ''
+          }`}
+          onClick={() => setComponent(component)}
+        />
+      )}
     </div>
   )
 }
