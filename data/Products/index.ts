@@ -2,6 +2,30 @@ import { Product } from '../../domain/model/Products/@types'
 
 export const PRODUCTS: Product[] = [
   {
+    id: 'portfolio',
+    title: 'このサイトについて',
+    description: ``,
+    links: [
+      {
+        name: 'Inspect',
+        href: 'https://www.tingtt.jp/inspect',
+        type: 'web',
+      },
+    ],
+    thumbnail: '/products/portfolio/thumbnail.png',
+    images: [
+      { name: 'top', src: '/products/portfolio/top.png' },
+      { name: 'aboutme', src: '/products/portfolio/aboutme.png' },
+      { name: 'skills', src: '/products/portfolio/skills.png' },
+    ],
+    techs: [
+      { name: 'TypeScript', type: 'pg-lang' },
+      { name: 'Next.js', type: 'pg-lang' },
+      { name: 'TailwindCSS', type: 'pg-lang' },
+      { name: 'Kubernetes', type: 'server' },
+    ],
+  },
+  {
     id: 'flow',
     title: 'flow',
     description: `「頑張るあなたに、自己管理を手助けする手帳。」  
