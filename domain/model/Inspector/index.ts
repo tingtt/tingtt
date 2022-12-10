@@ -31,9 +31,17 @@ export const useComponent = (): [
 
 export const useComponentSelected = (c: Component) => {
   const component = useRecoilValue(componentState)
-  return (
-    component != undefined &&
-    c.name == component.name &&
-    c.level == component.level
-  )
+  const { equals } = useComponentEquals()
+  return equals(component, c)
+}
+
+export const useComponentEquals = () => {
+  return {
+    equals: (a: Component | undefined, b: Component | undefined) => {
+      if (a == undefined || b == undefined) {
+        return false
+      }
+      return a.name == b.name && a.level == b.level
+    },
+  }
 }
