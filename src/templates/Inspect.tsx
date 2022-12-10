@@ -36,7 +36,7 @@ export const Inspect = ({
           inspecting={inspecting}
         />
       </div>
-      <div className='toast toast-top z-[100] flex-row-reverse'>
+      <div className='toast toast-top z-[1000] flex-row-reverse'>
         <ToggleInspect inspecting={inspecting} setInspecting={setInspecting} />
         {inspecting && <AtomicInspectLabelListToast />}
       </div>

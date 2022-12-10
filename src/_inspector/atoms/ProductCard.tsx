@@ -28,12 +28,12 @@ export const ProductCard = ({
   return (
     <div
       className={`
-        relative
-        card min-w-[300px] xl:min-w-[384px] min-h-[200px] xl:min-h-[260px] duration-200 hover:scale-105
+        card min-w-[300px] xl:min-w-[384px] min-h-[200px] xl:min-h-[260px] duration-200
+        ${inspecting ? '' : 'hover:scale-105'}
         rounded shadow-xl overflow-hidden dark:bordered dark:!border-gray-500
       `}
     >
-      <label htmlFor={id} className='w-full h-full'>
+      <label htmlFor={inspecting ? '' : id} className='relative w-full h-full'>
         {thumbnail != undefined ? (
           <Image src={thumbnail} width={400} height={400} alt={title} />
         ) : (

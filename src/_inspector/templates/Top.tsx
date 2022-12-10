@@ -85,7 +85,7 @@ export const Top = ({
       {products.map((p) => (
         <div key={p.id}>
           <input type='checkbox' id={p.id} className='modal-toggle' />
-          <label htmlFor={p.id} className='modal cursor-pointer'>
+          <label htmlFor={p.id} className='modal cursor-pointer left-[20%]'>
             <label
               className={`
                 modal-box max-w-[90%] relative rounded-lg

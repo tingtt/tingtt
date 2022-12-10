@@ -20,7 +20,7 @@ export const LabelButtonClose = (
   const isSelected = useComponentSelected(component)
 
   return (
-    <label {...props} className='btn btn-circle btn-ghost'>
+    <label {...props} className='btn btn-circle btn-ghost relative'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-6 w-6'
