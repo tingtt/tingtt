@@ -40,12 +40,7 @@ export const Outline = ({
     >
       {targets.map((t) => {
         return (
-          <Scroll
-            key={t.id}
-            to={inspecting ? '' : t.id}
-            smooth={smooth}
-            className='relative'
-          >
+          <Scroll key={t.id} to={inspecting ? '' : t.id} smooth={smooth}>
             {t.content}
           </Scroll>
         )
