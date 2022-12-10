@@ -1,11 +1,11 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { LabelButtonClose } from '../atoms/LabelButtonClose'
 import { ProductModalTitle } from '../atoms/ProductModalTitle'
@@ -13,11 +13,11 @@ import { ProductModalTitle } from '../atoms/ProductModalTitle'
 export const ProductModalHeader = ({
   id,
   title,
-  inspecting,
 }: {
   id: string
   title: string
-} & PropsInspecting) => {
+}) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductModalHeader',
@@ -27,9 +27,9 @@ export const ProductModalHeader = ({
 
   return (
     <div className='relative flex items-center'>
-      <ProductModalTitle title={title} inspecting={inspecting} />
+      <ProductModalTitle title={title} />
       <div className='modal-action ml-auto !mt-0'>
-        <LabelButtonClose htmlFor={id} inspecting={inspecting} />
+        <LabelButtonClose htmlFor={id} />
       </div>
       {/* Cover */}
       {inspecting && (

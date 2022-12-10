@@ -1,18 +1,16 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { SvgConsole } from './SvgConsole'
 
-export const ProductTechConsole = ({
-  name,
-  inspecting,
-}: { name: string } & PropsInspecting) => {
+export const ProductTechConsole = ({ name }: { name: string }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductTechConsole',
@@ -22,7 +20,7 @@ export const ProductTechConsole = ({
 
   return (
     <div className='relative flex gap-2'>
-      <SvgConsole width={24} height={24} inspecting={inspecting} />
+      <SvgConsole width={24} height={24} />
       {name}
       {/* Cover */}
       {inspecting && (

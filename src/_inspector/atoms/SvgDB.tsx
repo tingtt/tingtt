@@ -1,21 +1,15 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
-export const SvgDB = ({
-  width,
-  height,
-  inspecting,
-}: {
-  width: number
-  height: number
-} & PropsInspecting) => {
+export const SvgDB = ({ width, height }: { width: number; height: number }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'SvgDB',

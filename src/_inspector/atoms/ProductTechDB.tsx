@@ -1,18 +1,16 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { SvgDB } from './SvgDB'
 
-export const ProductTechDB = ({
-  name,
-  inspecting,
-}: { name: string } & PropsInspecting) => {
+export const ProductTechDB = ({ name }: { name: string }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductTechDB',
@@ -22,7 +20,7 @@ export const ProductTechDB = ({
 
   return (
     <div className='relative flex gap-2'>
-      <SvgDB width={24} height={24} inspecting={inspecting} />
+      <SvgDB width={24} height={24} />
       {name}
       {/* Cover */}
       {inspecting && (

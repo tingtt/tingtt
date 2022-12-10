@@ -29,12 +29,7 @@ export const Inspect = ({
       </div>
       {/* main */}
       <div className='h-screen overflow-y-scroll overflow-x-hidden'>
-        <Top
-          genres={genres}
-          isDarkMode={isDarkMode}
-          products={products}
-          inspecting={inspecting}
-        />
+        <Top genres={genres} isDarkMode={isDarkMode} products={products} />
       </div>
       <div className='toast toast-top z-[1000] flex-row-reverse'>
         <ToggleInspect inspecting={inspecting} setInspecting={setInspecting} />

@@ -1,11 +1,11 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { Genre, Skill } from '../../../domain/model/Skills/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
@@ -18,8 +18,8 @@ export type PropsSkillRadarChartGrid = {
 export const SkillRadarChartGrid = ({
   genres,
   isDarkMode,
-  inspecting,
-}: PropsSkillRadarChartGrid & PropsDarkMode & PropsInspecting) => {
+}: PropsSkillRadarChartGrid & PropsDarkMode) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'SkillRadarChartsGrid',
@@ -35,7 +35,6 @@ export const SkillRadarChartGrid = ({
           {...genre}
           skills={skills}
           isDarkMode={isDarkMode ?? false}
-          inspecting={inspecting}
         />
       ))}
       {/* Cover */}

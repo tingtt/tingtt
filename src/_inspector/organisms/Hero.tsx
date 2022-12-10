@@ -1,19 +1,17 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ORGANISM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { HeroLogoCaption } from '../molecules/HeroLogoCaption'
 import { Outline, PropsOutline } from '../molecules/Outline'
 
-export const Hero = ({
-  outline,
-  inspecting,
-}: { outline: PropsOutline } & PropsInspecting) => {
+export const Hero = ({ outline }: { outline: PropsOutline }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'Hero', level: ATOMIC_LEVEL_ORGANISM }
   const isSelected = useComponentSelected(component)
@@ -27,10 +25,10 @@ export const Hero = ({
       `}
     >
       <div className='xl:justify-self-start'>
-        <HeroLogoCaption inspecting={inspecting} />
+        <HeroLogoCaption />
       </div>
       <div className='w-full min-w-[300px] max-w-[300px] md:max-w-[360px] xl:max-w-[300px] 2xl:max-w-[360px] flex xl:justify-self-end'>
-        <Outline {...outline} inspecting={inspecting} />
+        <Outline {...outline} />
       </div>
       {/* Cover */}
       {inspecting && (

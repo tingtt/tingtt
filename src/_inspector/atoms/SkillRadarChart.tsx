@@ -12,11 +12,11 @@ import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 
 export const SkillRadarChart = ({
@@ -24,11 +24,10 @@ export const SkillRadarChart = ({
   color,
   skills,
   isDarkMode,
-  inspecting,
 }: Genre & {
   skills: Skill[]
-} & PropsDarkMode &
-  PropsInspecting) => {
+} & PropsDarkMode) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'SkillRadarChart',

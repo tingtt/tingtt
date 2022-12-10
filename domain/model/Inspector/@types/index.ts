@@ -1,5 +1,3 @@
-export type PropsInspecting = { inspecting: boolean }
-
 export type Component = {
   name: string
   level: AtomicLevel

@@ -2,20 +2,20 @@ import Image from 'next/image'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 export const IconProfile = ({
   width,
   height,
-  inspecting,
 }: {
   width: number
   height: number
-} & PropsInspecting) => {
+}) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'IconProfile', level: ATOMIC_LEVEL_ATOM }
   const isSelected = useComponentSelected(component)

@@ -1,11 +1,11 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ORGANISM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { SectionTitle } from '../atoms/SectionTitle'
 import {
@@ -13,10 +13,8 @@ import {
   PropsProductCardGrid,
 } from '../molecules/ProductCardGrid'
 
-export const Products = ({
-  products,
-  inspecting,
-}: PropsProductCardGrid & PropsInspecting) => {
+export const Products = ({ products }: PropsProductCardGrid) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'Products',
@@ -32,8 +30,8 @@ export const Products = ({
         py-36 smm:py-12 px-8 md:px-16 xl:px-18
       `}
     >
-      <SectionTitle inspecting={inspecting}>Products</SectionTitle>
-      <ProductCardGrid products={products} inspecting={inspecting} />
+      <SectionTitle>Products</SectionTitle>
+      <ProductCardGrid products={products} />
       {/* Cover */}
       {inspecting && (
         <div

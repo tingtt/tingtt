@@ -1,18 +1,19 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { LinkGitHub } from '../atoms/LinkGitHub'
 import { LinkGitLab } from '../atoms/LinkGitLab'
 import { LinkQiita } from '../atoms/LinkQiita'
 import { LinkZenn } from '../atoms/LinkZenn'
 
-export const AboutMeLinkList = ({ inspecting }: PropsInspecting) => {
+export const AboutMeLinkList = () => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'AboutMeLinkList',
@@ -22,10 +23,10 @@ export const AboutMeLinkList = ({ inspecting }: PropsInspecting) => {
 
   return (
     <div className='relative flex flex-wrap justify-center items-center gap-8'>
-      <LinkGitHub inspecting={inspecting} />
-      <LinkGitLab inspecting={inspecting} />
-      <LinkQiita inspecting={inspecting} />
-      <LinkZenn inspecting={inspecting} />
+      <LinkGitHub />
+      <LinkGitLab />
+      <LinkQiita />
+      <LinkZenn />
       {/* Cover */}
       {inspecting && (
         <div

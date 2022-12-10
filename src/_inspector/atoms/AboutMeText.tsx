@@ -1,14 +1,15 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
-export const AboutMeText = ({ inspecting }: PropsInspecting) => {
+export const AboutMeText = () => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'AboutMeText', level: ATOMIC_LEVEL_ATOM }
   const isSelected = useComponentSelected(component)

@@ -2,11 +2,11 @@ import { Link as Scroll } from 'react-scroll'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
 export type ScrollTarget = {
@@ -23,8 +23,8 @@ export const Outline = ({
   orientation = 'vertical',
   targets,
   smooth = true,
-  inspecting,
-}: PropsOutline & PropsInspecting) => {
+}: PropsOutline) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'Outline',

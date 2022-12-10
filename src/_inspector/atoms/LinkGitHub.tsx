@@ -1,21 +1,16 @@
-import { PropsInspecting } from '../../../domain/model/Inspector/@types'
 import { LinkExternal } from './LinkExternal'
 import { SvgGitHub } from './SvgGitHub'
 
 export const LinkGitHub = ({
   href,
   title,
-  inspecting,
 }: {
   href?: string
   title?: string
-} & PropsInspecting) => (
-  <LinkExternal
-    href={href ?? 'https://github.com/tingtt'}
-    inspecting={inspecting}
-  >
+}) => (
+  <LinkExternal href={href ?? 'https://github.com/tingtt'}>
     <div className='flex items-center gap-2 link link-hover text-blue-500 whitespace-wrap'>
-      <SvgGitHub width={24} height={24} inspecting={inspecting} />
+      <SvgGitHub width={24} height={24} />
       {title ?? 'GitHub'}
     </div>
   </LinkExternal>

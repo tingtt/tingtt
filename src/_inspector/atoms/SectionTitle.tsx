@@ -1,19 +1,15 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
-export const SectionTitle = ({
-  children,
-  inspecting,
-}: {
-  children: string
-} & PropsInspecting) => {
+export const SectionTitle = ({ children }: { children: string }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'SectionTitle',

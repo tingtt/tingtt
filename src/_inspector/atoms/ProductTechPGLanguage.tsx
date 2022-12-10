@@ -1,20 +1,16 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { SvgCode } from './SvgCode'
 
-export const ProductTechPGLanguage = ({
-  name,
-  inspecting,
-}: {
-  name: string
-} & PropsInspecting) => {
+export const ProductTechPGLanguage = ({ name }: { name: string }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductTechPGLanguage',
@@ -24,7 +20,7 @@ export const ProductTechPGLanguage = ({
 
   return (
     <div className='relative flex gap-2'>
-      <SvgCode width={24} height={24} inspecting={inspecting} />
+      <SvgCode width={24} height={24} />
       {name}
       {/* Cover */}
       {inspecting && (

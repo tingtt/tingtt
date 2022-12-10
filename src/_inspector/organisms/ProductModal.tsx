@@ -7,11 +7,11 @@ import { Product } from '../../../domain/model/Products/@types'
 import {
   ATOMIC_LEVEL_ORGANISM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 
 export const ProductModal = ({
@@ -21,8 +21,8 @@ export const ProductModal = ({
   techs,
   links,
   images,
-  inspecting,
-}: Product & PropsInspecting) => {
+}: Product) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductModal',
@@ -32,24 +32,20 @@ export const ProductModal = ({
 
   return (
     <div className='relative flex flex-col gap-4'>
-      <ProductModalHeader title={title} id={id} inspecting={inspecting} />
+      <ProductModalHeader title={title} id={id} />
       <div className='grid lg:grid-cols-2 gap-8'>
         <div className='flex flex-col gap-4'>
           <div className='mt-2'>
-            <Markdown inspecting={inspecting}>{description}</Markdown>
+            <Markdown>{description}</Markdown>
           </div>
           <div className='mt-6'>
-            <ProductLinkList links={links} inspecting={inspecting} />
+            <ProductLinkList links={links} />
           </div>
           <div className='mt-6'>
-            {techs && techs.length > 0 && (
-              <ProductTechList techs={techs} inspecting={inspecting} />
-            )}
+            {techs && techs.length > 0 && <ProductTechList techs={techs} />}
           </div>
         </div>
-        {images && images.length > 0 && (
-          <ImageCarousel images={images} inspecting={inspecting} />
-        )}
+        {images && images.length > 0 && <ImageCarousel images={images} />}
       </div>
       {/* Cover */}
       {inspecting && (

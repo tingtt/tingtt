@@ -1,21 +1,21 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
 export const SvgGitLab = ({
   width,
   height,
-  inspecting,
 }: {
   width: number
   height: number
-} & PropsInspecting) => {
+}) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'SvgGitLab',

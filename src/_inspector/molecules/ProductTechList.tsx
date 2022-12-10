@@ -7,19 +7,15 @@ import { ProductTechPGLanguage } from '../atoms/ProductTechPGLanguage'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 
-export const ProductTechList = ({
-  techs,
-  inspecting,
-}: {
-  techs: ProductTech[]
-} & PropsInspecting) => {
+export const ProductTechList = ({ techs }: { techs: ProductTech[] }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductTechList',
@@ -29,41 +25,17 @@ export const ProductTechList = ({
 
   return (
     <div className='relative flex flex-col gap-4'>
-      <ProductTechListHeader inspecting={inspecting} />
+      <ProductTechListHeader />
       <div className='flex flex-wrap gap-x-4 gap-y-2'>
         {(techs ?? []).map((t) => {
           if (t.type == 'pg-lang') {
-            return (
-              <ProductTechPGLanguage
-                key={t.name}
-                name={t.name}
-                inspecting={inspecting}
-              />
-            )
+            return <ProductTechPGLanguage key={t.name} name={t.name} />
           } else if (t.type == 'server') {
-            return (
-              <ProductTechConsole
-                key={t.name}
-                name={t.name}
-                inspecting={inspecting}
-              />
-            )
+            return <ProductTechConsole key={t.name} name={t.name} />
           } else if (t.type == 'db') {
-            return (
-              <ProductTechDB
-                key={t.name}
-                name={t.name}
-                inspecting={inspecting}
-              />
-            )
+            return <ProductTechDB key={t.name} name={t.name} />
           }
-          return (
-            <ProductTechDefault
-              key={t.name}
-              name={t.name}
-              inspecting={inspecting}
-            />
-          )
+          return <ProductTechDefault key={t.name} name={t.name} />
         })}
       </div>
       {/* Cover */}

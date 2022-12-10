@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getProducts } from '../../application/Products'
 import { getSkillsGroupedByGenre } from '../../application/Skills'
 import { COMPONENTS } from '../../data/Inspector'
+import { useInspecting } from '../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   ATOMIC_LEVEL_MOLECULE,
@@ -19,7 +20,7 @@ type Props = PropsSkillRadarChartGrid & { products: Product[] }
 
 const Home: NextPage<Props> = ({ genres, products }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [inspecting, setInspecting] = useState(true)
+  const [inspecting, setInspecting] = useInspecting()
 
   const [hooks, setHooks] = useState<any>([])
   useEffect(() => {
@@ -53,7 +54,6 @@ const Home: NextPage<Props> = ({ genres, products }) => {
               links={p.links}
               images={p.images}
               techs={p.techs}
-              inspecting={inspecting}
             />
           ),
         }

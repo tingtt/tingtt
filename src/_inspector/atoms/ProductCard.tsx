@@ -2,11 +2,11 @@ import Image from 'next/image'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
 export type ProductCardProps = {
@@ -15,12 +15,8 @@ export type ProductCardProps = {
   thumbnail?: string
 }
 
-export const ProductCard = ({
-  id,
-  title,
-  thumbnail,
-  inspecting,
-}: ProductCardProps & PropsInspecting) => {
+export const ProductCard = ({ id, title, thumbnail }: ProductCardProps) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'ProductCard', level: ATOMIC_LEVEL_ATOM }
   const isSelected = useComponentSelected(component)

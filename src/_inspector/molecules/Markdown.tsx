@@ -2,17 +2,15 @@ import ReactMarkdown from 'react-markdown'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
-export const Markdown = ({
-  children,
-  inspecting,
-}: { children: string } & PropsInspecting) => {
+export const Markdown = ({ children }: { children: string }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'Markdown',

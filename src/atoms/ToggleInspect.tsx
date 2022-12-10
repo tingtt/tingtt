@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 export type PropsToggleInspect = {
   inspecting: boolean
-  setInspecting: Dispatch<SetStateAction<boolean>>
+  setInspecting: Dispatch<SetStateAction<boolean>> | ((b: boolean) => void)
 }
 
 export const ToggleInspect = ({

@@ -1,11 +1,11 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ORGANISM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { SectionTitle } from '../atoms/SectionTitle'
@@ -17,8 +17,8 @@ import {
 export const Skills = ({
   genres,
   isDarkMode,
-  inspecting,
-}: PropsSkillRadarChartGrid & PropsDarkMode & PropsInspecting) => {
+}: PropsSkillRadarChartGrid & PropsDarkMode) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'Skills', level: ATOMIC_LEVEL_ORGANISM }
   const isSelected = useComponentSelected(component)
@@ -32,13 +32,9 @@ export const Skills = ({
         bg-base-200 bark:bg-base-300
       `}
     >
-      <SectionTitle inspecting={inspecting}>Skills</SectionTitle>
+      <SectionTitle>Skills</SectionTitle>
       <div className='min-h-[260px] w-full'>
-        <SkillRadarChartGrid
-          genres={genres}
-          isDarkMode={isDarkMode}
-          inspecting={inspecting}
-        />
+        <SkillRadarChartGrid genres={genres} isDarkMode={isDarkMode} />
       </div>
       {/* Cover */}
       {inspecting && (

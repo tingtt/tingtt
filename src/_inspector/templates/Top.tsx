@@ -2,11 +2,11 @@ import React from 'react'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_TEMPLATE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { PropsDarkMode } from '../../../domain/model/Theme/@types'
 import { ChatBubbleWelcome } from '../atoms/ChatBubbleWelcome'
@@ -22,11 +22,10 @@ export const Top = ({
   genres,
   isDarkMode,
   products,
-  inspecting,
 }: PropsSkillRadarChartGrid &
   PropsDarkMode & {
     products: ({ modalContent: React.ReactNode } & ProductCardProps)[]
-  } & PropsInspecting) => {
+  }) => {
   const sectionIds = [
     { id: 'section-about-me', name: 'About me', sub: '私について' },
     { id: 'section-skills', name: 'Skills', sub: 'スキル' },
@@ -34,6 +33,7 @@ export const Top = ({
   ]
   Object.freeze(sectionIds)
 
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'Top', level: ATOMIC_LEVEL_TEMPLATE }
   const isSelected = useComponentSelected(component)
@@ -47,39 +47,28 @@ export const Top = ({
           targets: sectionIds.map((s) => {
             return {
               id: s.id,
-              content: (
-                <OutlineContent
-                  name={s.name}
-                  subText={s.sub}
-                  inspecting={inspecting}
-                />
-              ),
+              content: <OutlineContent name={s.name} subText={s.sub} />,
             }
           }),
           smooth: true,
         }}
-        inspecting={inspecting}
       />
       {/* About me */}
       <div id={sectionIds[0].id}>
-        <AboutMe inspecting={inspecting} />
+        <AboutMe />
       </div>
       {/* Skills */}
       <div id={sectionIds[1].id}>
-        <Skills
-          genres={genres}
-          isDarkMode={isDarkMode}
-          inspecting={inspecting}
-        />
+        <Skills genres={genres} isDarkMode={isDarkMode} />
       </div>
       {/* Products */}
       <div id={sectionIds[2].id}>
-        <Products products={products} inspecting={inspecting} />
+        <Products products={products} />
       </div>
       {/* Toast */}
       <div className='toast toast-bottom toast-end chat chat-end p-8'>
         <div className='opacity-0 animate-[toast-pop_0.25s_ease-out_1s_forwards,toast-push_0.25s_ease-in_5s_forwards]'>
-          <ChatBubbleWelcome inspecting={inspecting} />
+          <ChatBubbleWelcome />
         </div>
       </div>
       {products.map((p) => (

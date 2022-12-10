@@ -2,16 +2,15 @@ import React from 'react'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
-export const SvgBug = (
-  props: React.SVGAttributes<SVGSVGElement> & PropsInspecting
-) => {
+export const SvgBug = (props: React.SVGAttributes<SVGSVGElement>) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = { name: 'SvgBug', level: ATOMIC_LEVEL_ATOM }
   const isSelected = useComponentSelected(component)
@@ -32,7 +31,7 @@ export const SvgBug = (
         />
       </svg>
       {/* Cover */}
-      {props.inspecting && (
+      {inspecting && (
         <div
           className={`atomic-atom-cover ${isSelected ? 'atomic-atom' : ''}`}
           onClick={() => setComponent(component)}

@@ -4,19 +4,15 @@ import 'react-responsive-carousel/lib/styles/carousel.css'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 
-export const ImageCarousel = ({
-  images,
-  inspecting,
-}: {
-  images: ProductImage[]
-} & PropsInspecting) => {
+export const ImageCarousel = ({ images }: { images: ProductImage[] }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ImageCarousel',

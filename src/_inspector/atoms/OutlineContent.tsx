@@ -1,21 +1,21 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_ATOM,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 
 export const OutlineContent = ({
   name,
   subText,
-  inspecting,
 }: {
   name: string
   subText: string
-} & PropsInspecting) => {
+}) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'OutlineContent',

@@ -1,11 +1,11 @@
 import {
   useComponent,
   useComponentSelected,
+  useInspecting,
 } from '../../../domain/model/Inspector'
 import {
   ATOMIC_LEVEL_MOLECULE,
   Component,
-  PropsInspecting,
 } from '../../../domain/model/Inspector/@types'
 import { ProductLink } from '../../../domain/model/Products/@types'
 import { LinkDefault } from '../atoms/LinkDefault'
@@ -15,12 +15,8 @@ import { LinkGitLab } from '../atoms/LinkGitLab'
 import { LinkSlide } from '../atoms/LinkSlide'
 import { LinkWeb } from '../atoms/LinkWeb'
 
-export const ProductLinkList = ({
-  links,
-  inspecting,
-}: {
-  links: ProductLink[]
-} & PropsInspecting) => {
+export const ProductLinkList = ({ links }: { links: ProductLink[] }) => {
+  const [inspecting] = useInspecting()
   const [_, setComponent] = useComponent()
   const component: Component = {
     name: 'ProductLinkList',
@@ -32,14 +28,7 @@ export const ProductLinkList = ({
     <div className='relative flex flex-col gap-2 [&>*]:w-max'>
       {(links ?? []).map((l) => {
         if (l.type == 'github') {
-          return (
-            <LinkGitHub
-              key={l.href}
-              title={l.name}
-              href={l.href}
-              inspecting={inspecting}
-            />
-          )
+          return <LinkGitHub key={l.href} title={l.name} href={l.href} />
         } else if (l.type == 'gitlab') {
           return (
             <LinkGitLab
@@ -47,45 +36,16 @@ export const ProductLinkList = ({
               title={l.name}
               href={l.href}
               blackAndWhite
-              inspecting={inspecting}
             />
           )
         } else if (l.type == 'web') {
-          return (
-            <LinkWeb
-              key={l.href}
-              title={l.name ?? ''}
-              href={l.href}
-              inspecting={inspecting}
-            />
-          )
+          return <LinkWeb key={l.href} title={l.name ?? ''} href={l.href} />
         } else if (l.type == 'docs') {
-          return (
-            <LinkDocs
-              key={l.href}
-              title={l.name ?? ''}
-              href={l.href}
-              inspecting={inspecting}
-            />
-          )
+          return <LinkDocs key={l.href} title={l.name ?? ''} href={l.href} />
         } else if (l.type == 'slide') {
-          return (
-            <LinkSlide
-              key={l.href}
-              title={l.name ?? ''}
-              href={l.href}
-              inspecting={inspecting}
-            />
-          )
+          return <LinkSlide key={l.href} title={l.name ?? ''} href={l.href} />
         }
-        return (
-          <LinkDefault
-            key={l.href}
-            title={l.name ?? ''}
-            href={l.href}
-            inspecting={inspecting}
-          />
-        )
+        return <LinkDefault key={l.href} title={l.name ?? ''} href={l.href} />
       })}
       {/* Cover */}
       {inspecting && (
