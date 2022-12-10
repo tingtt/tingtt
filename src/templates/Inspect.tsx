@@ -33,7 +33,13 @@ export const Inspect = ({
       </div>
       <div className='toast toast-top z-[1000] flex-row-reverse'>
         <ToggleInspect inspecting={inspecting} setInspecting={setInspecting} />
-        {inspecting && <AtomicInspectLabelListToast />}
+        <div
+          className={
+            inspecting ? '' : 'animate-[toast-push_0.25s_ease-in_forwards]'
+          }
+        >
+          <AtomicInspectLabelListToast />
+        </div>
       </div>
     </div>
   )
