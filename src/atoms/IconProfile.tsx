@@ -6,5 +6,5 @@ export const IconProfile = ({
   width: number
   height: number
 }) => (
-  <Image src='/prof_icon.png' width={width} height={height} alt={'prof_icon'} />
+  <Image src='/prof_icon.webp' width={width} height={height} alt={'prof_icon'} />
 )

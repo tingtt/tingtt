@@ -22,7 +22,7 @@ export const IconQiita = ({
 
   return (
     <div className='relative'>
-      <Image src='/qiita.png' width={width} height={height} alt={'Qiita'} />
+      <Image src='/qiita.webp' width={width} height={height} alt={'Qiita'} />
       {/* Cover */}
       {inspecting && (
         <div

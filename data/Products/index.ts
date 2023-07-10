@@ -12,11 +12,11 @@ export const PRODUCTS: Product[] = [
         type: 'web',
       },
     ],
-    thumbnail: '/products/portfolio/thumbnail.png',
+    thumbnail: '/products/portfolio/thumbnail.webp',
     images: [
-      { name: 'top', src: '/products/portfolio/top.png' },
-      { name: 'aboutme', src: '/products/portfolio/aboutme.png' },
-      { name: 'skills', src: '/products/portfolio/skills.png' },
+      { name: 'top', src: '/products/portfolio/top.webp' },
+      { name: 'aboutme', src: '/products/portfolio/aboutme.webp' },
+      { name: 'skills', src: '/products/portfolio/skills.webp' },
     ],
     techs: [
       { name: 'TypeScript', type: 'pg-lang' },
@@ -46,10 +46,10 @@ export const PRODUCTS: Product[] = [
         type: 'gitlab',
       },
     ],
-    thumbnail: '/products/flow/thumbnail.png',
+    thumbnail: '/products/flow/thumbnail.webp',
     images: [
-      { name: 'timetable', src: '/products/flow/timetable.png' },
-      { name: 'dashboard', src: '/products/flow/dashboard.png' },
+      { name: 'timetable', src: '/products/flow/timetable.webp' },
+      { name: 'dashboard', src: '/products/flow/dashboard.webp' },
       // TODO: Figmaのスクショを追加
     ],
     techs: [
@@ -87,15 +87,15 @@ export const PRODUCTS: Product[] = [
         type: 'github',
       },
     ],
-    thumbnail: '/products/hotcale/thumbnail.png',
+    thumbnail: '/products/hotcale/thumbnail.webp',
     images: [
       {
         name: 'popup',
-        src: '/products/hotcale/popup.jpg',
+        src: '/products/hotcale/popup.webp',
       },
       {
         name: 'line_notify',
-        src: '/products/hotcale/line_notify.jpeg',
+        src: '/products/hotcale/line_notify.webp',
       },
     ],
     techs: [
@@ -123,8 +123,8 @@ export const PRODUCTS: Product[] = [
         type: 'github',
       },
     ],
-    thumbnail: '/products/intellibase/thumbnail.png',
-    images: [{ name: 'expo', src: '/products/intellibase/expo.jpg' }],
+    thumbnail: '/products/intellibase/thumbnail.webp',
+    images: [{ name: 'expo', src: '/products/intellibase/expo.webp' }],
     // TODO: アプリのスクショを追加
     techs: [
       { name: 'PHP', type: 'pg-lang' },
@@ -155,10 +155,10 @@ export const PRODUCTS: Product[] = [
         type: 'docs',
       },
     ],
-    thumbnail: '/products/tingttjp/thumbnail.png',
+    thumbnail: '/products/tingttjp/thumbnail.webp',
     images: [
-      { name: 'k8s-diagram', src: '/products/tingttjp/k8s_diagram.png' },
-      { name: 'argo-diagram', src: '/products/tingttjp/argo_diagram.png' },
+      { name: 'k8s-diagram', src: '/products/tingttjp/k8s_diagram.webp' },
+      { name: 'argo-diagram', src: '/products/tingttjp/argo_diagram.webp' },
     ],
     techs: [
       { name: 'Kubernetes', type: 'server' },
@@ -174,13 +174,13 @@ export const PRODUCTS: Product[] = [
     links: [],
     // thumbnail: '',
     images: [
-      { name: 'diagram', src: '/products/slidev/diagram.png' },
-      { name: 'flow', src: '/products/slidev/slidev.tingtt.jp_flow_1.png' },
+      { name: 'diagram', src: '/products/slidev/diagram.webp' },
+      { name: 'flow', src: '/products/slidev/slidev.tingtt.jp_flow_1.webp' },
       {
         name: 'k8s-argo',
-        src: '/products/slidev/slidev.tingtt.jp_k8s-argo_1.png',
+        src: '/products/slidev/slidev.tingtt.jp_k8s-argo_1.webp',
       },
-      { name: 'intro', src: '/products/slidev/slidev.tingtt.jp_intro_1.png' },
+      { name: 'intro', src: '/products/slidev/slidev.tingtt.jp_intro_1.webp' },
     ],
     techs: [
       { name: 'Slidev', type: 'pg-lang' },

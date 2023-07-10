@@ -23,7 +23,7 @@ export const IconProfile = ({
   return (
     <div className='relative'>
       <Image
-        src='/prof_icon.png'
+        src='/prof_icon.webp'
         width={width}
         height={height}
         alt={'prof_icon'}
