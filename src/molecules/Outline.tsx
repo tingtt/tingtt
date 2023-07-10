@@ -23,7 +23,7 @@ export const Outline = ({
     >
       {targets.map((t) => {
         return (
-          <Scroll key={t.id} to={t.id} smooth={smooth}>
+          <Scroll key={t.id} to={t.id} smooth={smooth} href={`#${t.id}`}>
             {t.content}
           </Scroll>
         )
