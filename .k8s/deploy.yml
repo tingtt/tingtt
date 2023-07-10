@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tingtt-portfolio
-          image: tingtt/tingtt:v0.5.3
+          image: tingtt/tingtt:v0.5.4
           imagePullPolicy: Always
           resources:
             requests:
