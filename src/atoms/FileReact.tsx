@@ -1,6 +1,6 @@
 import { useComponent } from '../../domain/model/Inspector'
 import { Component } from '../../domain/model/Inspector/@types'
-import { SvgReact } from './SvgReact'
+import { SvgReact } from '../assets/SvgReact'
 
 export const FileReact = ({
   file,

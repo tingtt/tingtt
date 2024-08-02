@@ -1,5 +1,5 @@
 import { LinkExternal } from './LinkExternal'
-import { SvgZenn } from './SvgZenn'
+import { SvgZenn } from '../assets/SvgZenn'
 
 export const LinkZenn = () => (
   <LinkExternal href='https://zenn.dev/tingtt'>

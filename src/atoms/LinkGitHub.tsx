@@ -1,5 +1,5 @@
 import { LinkExternal } from './LinkExternal'
-import { SvgGitHub } from './SvgGitHub'
+import { SvgGitHub } from '../assets/SvgGitHub'
 
 export const LinkGitHub = ({
   href,

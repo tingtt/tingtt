@@ -1,5 +1,5 @@
 import { LinkExternal } from './LinkExternal'
-import { SvgDefault } from './SvgDefault'
+import { SvgDefault } from '../assets/SvgDefault'
 
 export const LinkDefault = ({
   href,

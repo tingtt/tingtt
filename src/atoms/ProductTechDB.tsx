@@ -1,4 +1,4 @@
-import { SvgDB } from './SvgDB'
+import { SvgDB } from '../assets/SvgDB'
 
 export const ProductTechDB = ({ name }: { name: string }) => (
   <div className='flex gap-2'>

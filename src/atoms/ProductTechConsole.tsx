@@ -1,4 +1,4 @@
-import { SvgConsole } from './SvgConsole'
+import { SvgConsole } from '../assets/SvgConsole'
 
 export const ProductTechConsole = ({ name }: { name: string }) => (
   <div className='flex gap-2'>

@@ -1,4 +1,4 @@
-import { SvgBug } from './SvgBug'
+import { SvgBug } from '../assets/SvgBug'
 
 export const BugRoad = () => {
   return (

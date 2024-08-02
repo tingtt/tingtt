@@ -1,5 +1,5 @@
 import { LinkExternal } from './LinkExternal'
-import { SvgSlide } from './SvgSlide'
+import { SvgSlide } from '../assets/SvgSlide'
 
 export const LinkSlide = ({ href, title }: { href: string; title: string }) => (
   <LinkExternal href={href}>
